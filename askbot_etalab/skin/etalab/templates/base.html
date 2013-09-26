@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="{{language_code}}"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="{{language_code}}"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="{{language_code}}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{language_code}}"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>{% block title %}{% endblock %} - {{ settings.APP_TITLE|escape }}</title>
+    {% block meta_description %}
+    <meta name="description" content="{{settings.APP_DESCRIPTION|escape}}" />
+    {% endblock %}
+    <meta name="keywords" content="{%block keywords%}{%endblock%},{{settings.APP_KEYWORDS|escape}}" />
+    {% if settings.GOOGLE_SITEMAP_CODE %}
+    <meta name="google-site-verification" content="{{settings.GOOGLE_SITEMAP_CODE}}" />
+    {% endif %}
+    <meta name="referrer" content="always" />
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="ETALAB">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    {# Reference to other Etalab sites #}
+    <meta name="domain" content="{{ etalab.DOMAIN }}" />
+    <link rel="home" href="{{ etalab.HOME_URL }}" />
+    <link rel="wiki" href="{{ etalab.WIKI_URL }}" />
+    <link rel="wiki-api" href="{{ etalab.WIKI_API_URL }}" />
+    <link rel="questions" href="{{ etalab.QUESTIONS_URL }}" />
+
+    {% if settings.SITE_FAVICON %}
+    <link rel="shortcut icon" href="{{ settings.SITE_FAVICON|media }}" />
+    {% endif %}
+    <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="{% trans site_title=settings.APP_SHORT_NAME %}RSS feed from {{ site_title }}{% endtrans %}"
+        href="{{ base_url }}{% url "latest_questions_feed" %}"
+    />
+
+    {% if settings.USE_CUSTOM_HTML_HEAD %}
+        {{ settings.CUSTOM_HTML_HEAD }}
+    {% endif %}
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+    <link href="{{"/css/etalab-askbot.min.css"|media }}" rel="stylesheet" type="text/css" />
+
+    {% block forestyle %}{% endblock %}
+    {% include "head_js.html" %}
+    {% block forejs %}{% endblock %}
+
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="full-container">
+
+        <div class="notify" style="display:none">
+            {% if user_messages %}
+                {% for message in user_messages %}
+                      <p class="notification">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            <a id="closeNotify" onclick="notify.close(true)"></a>
+        </div>
+
+        {# <div class="alert alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong>Warning!</strong> Best check yo self, you're not looking too good.
+        </div> #}
+
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                {% include "sidebar.html" %}
+            </div>
+
+            <div class="col-sm-9 col-md-9">
+            {% block body %}{% endblock %}
+            </div>
+        </div>
+
+        <hr/>
+        <footer>
+            <p class="pull-right"><a href="#">{% trans %}Back to top{% endtrans %}</a></p>
+            <p>
+                &copy; 2013 ETALAB, Inc. &middot;
+                <a href="#">{% trans %}Privacy{% endtrans %}</a> &middot;
+                <a href="#">{% trans %}Terms{% endtrans %}</a>
+            </p>
+        </footer>
+
+    </div>
+
+
+    {% include "footer_js.html" %}
+
+    {% block javascript %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "askbot-etalab-skin",
+  "description": "Askbot skin for ETALAB",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/etalab/askbot-etalab-skin.git"
+  },
+  "keywords": [
+    "askbot",
+    "etalab",
+    "skin"
+  ],
+  "author": "Axel Haustant",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/etalab/askbot-etalab-skin/issues"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-compress": "latest",
+    "grunt-contrib-clean": "latest"
+  }
+}

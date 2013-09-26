@@ -1,4 +1,9 @@
 *.log
 *.pot
 *.pyc
-local_settings.py
+*.mo
+*.egg-info
+/dist/
+/bower/
+/node_modules/
+/askbot_etalab/skin/etalab/media/

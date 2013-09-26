@@ -1,0 +1,5 @@
+include setup.py LICENSE MANIFEST.in CHANGELOG.rst README.rst
+
+recursive-include askbot_etalab *
+
+global-exclude *~ *.egg *.pyc .DS_Store .gitignore

@@ -1,0 +1,127 @@
+@import "etalab.less";
+
+.condensed {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+@vote: #4a757f;
+@answer: #eab243;
+@view: #d33f00;
+
+
+.gold, .badge1 {
+    color: #FFCC00;
+}
+
+.silver, .badge2 {
+    color: #CCCCCC;
+}
+
+.bronze, .badge3 {
+    color: #CC9933;
+}
+
+.medal {
+    .badge();
+}
+
+.search-result-summary {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.short-summary {
+    margin-top: 5px;
+    padding: 5px;
+    border-bottom: 1px solid darken(@gray-lighter, 5%);
+
+    h2 {
+        .condensed();
+        font-size: 22px;
+        font-weight:normal;
+        line-height: 26px;
+        padding-left: 0;
+        margin: 5px;
+        display:block;
+    }
+
+    .summary {
+        padding-right: 190px;
+        min-height: 55px;
+
+        .tags {
+            margin: 5px;
+        }
+
+        .userinfo {
+            line-height:16px;
+            padding-right:4px;
+            font-size: 12px;
+            font-weight: normal;
+            color: #555;
+
+            a {
+                font-weight:bold;
+            }
+
+            img {
+                vertical-align: baseline;
+            }
+        }
+    }
+
+    .counts {
+        margin: 4px 0 0 5px;
+
+        .count {
+            .condensed();
+            text-align: center;
+            margin: 0 3px;
+            padding: 0px 2px 0px 2px;
+            width: 55px;
+            height: 55px;
+            float: right;
+            border:#dbdbd4 1px solid;
+
+            .item-count {
+                padding: 0px 5px 0px 5px;
+                font-size: 25px;
+            }
+
+            div {
+                line-height: 14px;
+                color: #646464;
+            }
+
+            &.views {
+                color: @view;
+                #gradient.vertical(white, lighten(@view, 40%));
+            }
+
+            &.answers {
+                color: @answer;
+                #gradient.vertical(white, lighten(@answer, 35%));
+            }
+
+            &.votes {
+                color: @vote;
+                #gradient.vertical(white, lighten(@vote, 40%));
+            }
+
+            &.none {
+                color: @gray-light;
+            }
+        }
+    }
+
+}
+
+.tags {
+    a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}

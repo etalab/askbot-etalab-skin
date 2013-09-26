@@ -1,0 +1,47 @@
+<nav id="sidebar" class="panel">
+
+    {# Public data presentation #}
+    <div class="panel-heading">
+        <a href data-toggle="collapse" data-target="#navigation-body">{% trans %}Navigation{% endtrans %}</a>
+    </div>
+    <div id="navigation-body" class="panel-body collapse in">
+        <ul class="list-unstyled">
+            <li>
+                <a href="{% url questions %}" >
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    {% trans %}questions{% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a href="{% url tags %}" {% if active_tab == 'tags' %}class="active"{% endif %}>
+                    <span class="glyphicon glyphicon-tags"></span>
+                    {% trans %}tags{% endtrans %}
+                </a>
+            </li>
+            <li>
+            {% if settings.GROUPS_ENABLED %}
+                <a {% if active_tab == 'groups' %}class="active"{% endif %} href="{% url groups %}" data-target="#" >
+                    <span class="glyphicon glyphicon-user"></span>
+                    {% trans %}people & groups{% endtrans %}
+                </a>
+            {% else %}
+                <a href="{% url users %}" {% if active_tab == 'users' %}class="active"{% endif %}>
+                    <span class="glyphicon glyphicon-user"></span>
+                    {% trans %}users{% endtrans %}
+                </a>
+            {% endif %}
+            </li>
+        </ul>
+    </div>
+
+    {# Groups #}
+    <div class="list-group">
+        {% for title, icon, link in etalab.GROUPS %}
+        <a class="list-group-item" href="{{ link }}">
+            <span class="icon icon-{{icon}}"></span>
+            {{ title }}
+        </a>
+        {% endfor %}
+    </div>
+
+</nav>
