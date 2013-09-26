@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 import re
-import codecs
 
 from setuptools import setup, find_packages
 
@@ -26,16 +23,16 @@ def rst(filename):
      - code-block directive
      - travis ci build badge
     '''
-    content = codecs.open(filename, encoding='utf-8').read()
+    content = open(filename).read()
     for regex, replacement in PYPI_RST_FILTERS:
-        content = re.sub(regex, replacement, content, flags=re.U)
+        content = re.sub(regex, replacement, content)
     return content
 
 
-long_description = u'\n'.join((
+long_description = '\n'.join((
     rst('README.rst'),
     rst('CHANGELOG.rst'),
-    u''
+    ''
 ))
 
 setup(
