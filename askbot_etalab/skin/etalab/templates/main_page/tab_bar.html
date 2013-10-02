@@ -2,7 +2,7 @@
 {% load extra_filters_jinja %}
 {% cache 0 "scope_sort_tabs" search_tags request.user author_name scope sort query context.page language_code %}
 <div class="btn-toolbar pull-right">
-    <div class="btn-group btn-group-sm">
+    <div id="sort_tabs" class="btn-group btn-group-sm">
         <a href class="btn btn-default disabled">{% trans %}Sort by &raquo;{% endtrans %}</a>
         {% if show_sort_by_relevance %}
             {% set asc_relevance_tooltip = gettext('most relevant questions') %}
@@ -14,7 +14,7 @@
                 {% if sort == "relevance-desc" %}
                     class="btn btn-info">
                     {{relevance_label}}
-                    <span class="glyphicon glyphicon-chevron-up"></span>
+                    <span class="glyphicon glyphicon-chevron-down"></span>
                 {% else %}
                     class="btn btn-default">
                     {{relevance_label}}
@@ -70,7 +70,7 @@
 
     {% if settings.RSS_ENABLED %}
     <div class="btn-group btn-group-sm">
-        <a class="rss btn btn-warning"
+        <a id="questions-rss-button" class="rss btn btn-warning"
             {% if feed_url %}
             href="{{feed_url}}"
             {% else %}

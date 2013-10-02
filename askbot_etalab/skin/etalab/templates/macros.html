@@ -1,9 +1,12 @@
 {% load extra_filters_jinja %}
 
 {%- macro share(site = None, site_label = None, icon = False) -%}
-    <a class="{{ site }}-share{% if icon == True %} icon{% endif %}"
+    <a class="{{ site }}-share share-icon"
         title="{% trans %}Share this question on {{site}}{% endtrans %}"
-    >{% if icon == False %}{% if site_label %}{{ site_label }}{% else %}{{ site }}{% endif %}{% endif %}</a>
+    >
+    {% if icon %}<span class="icon icon-{{site}}"></span>{% endif %}
+    {% if icon == False %}{% if site_label %}{{ site_label }}{% else %}{{ site }}{% endif %}{% endif %}
+    </a>
 {%- endmacro -%}
 
 {%- macro inbox_post_snippet(response, inbox_section) -%}
@@ -37,6 +40,7 @@
 {%- macro post_vote_buttons(post = None) -%}
 <div id="{{post.post_type}}-img-upvote-{{ post.id }}"
     class="{{post.post_type}}-img-upvote post-vote upvote">
+    <span class="glyphicon glyphicon-chevron-up"></span>
 </div>
 <div
     id="{{post.post_type}}-vote-number-{{ post.id }}"
@@ -46,6 +50,7 @@
 <div
     id="{{post.post_type}}-img-downvote-{{ post.id }}"
     class="{{post.post_type}}-img-downvote post-vote downvote">
+    <span class="glyphicon glyphicon-chevron-down"></span>
 </div>
 <script type="text/javascript">
     askbot['functions']['renderPostVoteButtons']('{{post.post_type}}', '{{post.id}}');
@@ -59,7 +64,7 @@
     {% else %}
         {{ user_card(user, karma_mode=karma_mode, badges_mode=badges_mode) }}
     {% endif %}
-    {{ user_primary_group(user) }}
+    {#{ user_primary_group(user) }#}
 {%- endmacro -%}
 
 {%- macro post_last_updater_and_creator_info(
@@ -321,11 +326,8 @@ poor design of the data or methods on data objects #}
             {{ tag|replace('*', '&#10045;')|escape }}
         {%- endif %}</{% if not is_link or tag[-1] == '*' %}span{% else %}a{% endif %}>
         {% if deletable %}
-            <div class="delete-icon"
-                {% if delete_link_title %}
-                    title="{{ delete_link_title }}"
-                {% endif %}
-            >x</div>
+            &nbsp;
+            <a class="delete-icon" {% if delete_link_title %}title="{{ delete_link_title }}"{% endif %}>×</a>
         {% endif %}
     </{{ html_tag }}>
     {{ extra_content }}
@@ -363,7 +365,14 @@ for the purposes of the AJAX comment editor #}
     {% else %}
         {% set remaining_comment_count = 0 %}
     {% endif %}
-    <a id="add-comment-to-post-{{post.id}}" class="button"></a>
+    <a id="add-comment-to-post-{{post.id}}" class="button btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-comment"></span>
+        {% if remaining_comment_count > 0 %}
+            {% trans %}see more comments{% endtrans%}
+        {% else %}
+            {% trans %}add a comment{% endtrans %}
+        {% endif %}
+    </a>
     <script type="text/javascript">
         askbot['data']['{{widget_id}}'] = {
             truncated: {% if post.comment_count > max_comments %}true{% else %}false{% endif %}
@@ -393,7 +402,7 @@ for the purposes of the AJAX comment editor #}
     {% spaceless %}
     {% if post.comment_count > 0 %}
         <h2 class="comment-title">{% trans %}Comments{% endtrans %}</h2>
-        <div class="clean"></div>
+        <div class="clearfix"></div>
     {% endif %}
     {% set widget_id = 'comments-for-' + post.post_type + '-' + post.id|string %}
     <div class="comments{% if post.comment_count == 0 %} empty{% endif %}" id="{{ widget_id }}">
@@ -437,20 +446,27 @@ for the purposes of the AJAX comment editor #}
                                 href="{{comment.author.get_profile_url()}}"
                             >{{comment.author.username|escape}}</a>
                             <span class="age">&nbsp;({{ timeago(comment.added_at) }})</span>
-                            <a
-                                id="post-{{comment.id}}-edit"
-                                class="edit"
-                            >{% trans %}edit{% endtrans %}</a>
-                            <form
-                                action="{% url comment_to_answer %}"
-                                method="POST"
-                                accept-charset="utf-8"
-                                class='convert-comment'
-                            >
-                                {% csrf_token %}
-                                <input type="hidden" value="{{comment.id}}" name="comment_id" id="id_comment_id">
-                                <input type="submit" value="{% trans %}convert to answer{% endtrans %}">
-                            </form>
+                            <div class="btn-group btn-group-xs">
+                                <a id="post-{{comment.id}}-edit" class="edit btn btn-default">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                    {% trans %}edit{% endtrans %}
+                                </a>
+                                <a href="{% url comment_to_answer %}" class="postable btn btn-default"
+                                    data-field-name="commend_id" data-field-value="{{comment.id}}">
+                                    {% trans %}convert to answer{% endtrans %}
+                                </a>
+                                {# <form
+                                    action=
+                                    method="POST"
+                                    accept-charset="utf-8"
+                                    class='convert-comment'
+                                >
+                                    {% csrf_token %}
+                                    <input type="hidden" value="{{comment.id}}" name="comment_id" id="id_comment_id">
+                                    <input type="submit" value="{% trans %}convert to answer{% endtrans %}"
+                                        class="btn btn-default btn-sm">
+                                </form> #}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -518,9 +534,9 @@ for the purposes of the AJAX comment editor #}
             {{ label }}
             <span class="glyphicon glyphicon-chevron-down"></span>
         {% else %}{# default, when other button is active #}
-           class="btn btn-default"
-           href="{{ search_state.change_sort(key_name+"-desc").full_url() }}"
-           title="{{desc_tooltip}}">
+            class="btn btn-default"
+            href="{{ search_state.change_sort(key_name+"-desc").full_url() }}"
+            title="{{desc_tooltip}}">
             {{ label }}
         {% endif %}
         <script type="text/javascript">{# need to pass on text translations to js #}

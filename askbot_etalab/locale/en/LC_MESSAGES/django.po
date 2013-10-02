@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-26 10:47-0500\n"
+"POT-Creation-Date: 2013-09-26 12:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -255,6 +255,7 @@ msgid "%(seen)s flagged posts"
 msgstr ""
 
 #: skin/etalab/templates/main_page.html:11
+#: skin/etalab/templates/sidebar.html:12
 msgid "Questions"
 msgstr ""
 
@@ -314,20 +315,16 @@ msgstr ""
 msgid "Navigation"
 msgstr ""
 
-#: skin/etalab/templates/sidebar.html:12
-msgid "questions"
-msgstr ""
-
 #: skin/etalab/templates/sidebar.html:18
-msgid "tags"
+msgid "Tags"
 msgstr ""
 
 #: skin/etalab/templates/sidebar.html:25
-msgid "people & groups"
+msgid "People & groups"
 msgstr ""
 
 #: skin/etalab/templates/sidebar.html:30
-msgid "users"
+msgid "Users"
 msgstr ""
 
 #: skin/etalab/templates/main_page/headline.html:4

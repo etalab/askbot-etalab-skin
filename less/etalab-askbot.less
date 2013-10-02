@@ -8,6 +8,9 @@
 @answer: #eab243;
 @view: #d33f00;
 
+hr.slim {
+    margin: 5px;
+}
 
 .gold, .badge1 {
     color: #FFCC00;
@@ -26,6 +29,7 @@
 }
 
 .search-result-summary {
+    display: inline;
     font-size: 20px;
     font-weight: bold;
 }
@@ -116,7 +120,94 @@
 
 }
 
+.tabBar {
+    background-color: lighten(@bg-light, 10%);
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 10px
+}
+
+.tabBar-answer h2{
+    display: inline;
+    color: white;
+}
+
+.reputation-score {
+    font-weight: bold;
+}
+
+.post {
+    h1 {
+        .condensed();
+    }
+
+    display: table;
+    width: 100%;
+    margin-bottom: 20px;
+
+    .vote-buttons {
+        display: table-cell;
+        width: 50px;
+        text-align: center;
+        font-size: @font-size-large;
+
+        .post-vote {
+            font-weight: bold;
+            cursor: pointer;
+            &.upvote {
+                .glyphicon:hover {
+                    color: green;
+                    .scale(1.5);
+                }
+            }
+
+            &.downvote {
+                .glyphicon:hover {
+                    color: red;
+                    .scale(1.5);
+                }
+            }
+        }
+
+        a.share-icon {
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: none;
+
+                .icon {
+                    .scale(1.3);
+                }
+            }
+
+            .icon {
+                font-size: 1.7em;
+                line-height: 1.2;
+            }
+        }
+    }
+
+
+    .post-content {
+        display: table-cell;
+
+        .post-body {
+            margin: 5px;
+        }
+
+        footer {
+            padding: 5px;
+            margin: 5px;
+            background-color: lighten(@bg-light, 30%);
+            border-radius: 4px;
+        }
+    }
+}
+
+
+
 .tags {
+    display: inline-block;
     a {
         color: white;
         text-decoration: none;
@@ -124,4 +215,62 @@
             font-weight: bold;
         }
     }
+}
+
+.label {
+    .delete-icon {
+        .close();
+        float: none;
+        font-size: 130%;
+        vertical-align: baseline;
+    }
+}
+
+
+.post-update-info {
+    height: 75px;
+    padding: 5px;
+    display: inline-table;
+    background-color: white;
+    border: 1px solid @gray-lighter;
+    margin-bottom: 5px;
+}
+
+.user-card {
+    // background-color: white;
+    // border: 1px solid @gray-lighter;
+    // padding: 5px;
+    display: inline-block;
+
+    .avatar-box {
+        img {
+            vertical-align: baseline;
+        }
+    }
+
+    .user-info {
+        display: inline-block;
+    }
+}
+
+/**
+ * WYSIWIG Editor
+ */
+.wmd-container {
+    background-color: white;
+    border: 1px solid @gray-lighter;
+
+    textarea {
+        width: 100%;
+    }
+}
+
+.wmd-preview {
+    background-color: white;
+    border: 1px solid @gray-lighter;
+    padding: 10px;
+}
+
+.edit-comment-buttons {
+    margin-top: 5px;
 }

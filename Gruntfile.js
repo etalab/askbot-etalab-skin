@@ -1,7 +1,10 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        clean: ["askbot_etalab/skin/media"],
+        clean: [
+            "askbot_etalab/skin/etalab/media/{css,fonts,img}",
+            "askbot_etalab/skin/etalab/media/js/{etalab,modernizr}*.js"
+        ],
         copy: {
             bower: {
                 files: [{

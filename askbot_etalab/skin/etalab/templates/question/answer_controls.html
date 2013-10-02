@@ -1,0 +1,75 @@
+<div class="btn-group btn-group-xs">
+    <a id='post-{{answer.id}}-edit' class="btn btn-default" href="{% url edit_answer answer.id %}">
+        <span class="glyphicon glyphicon-edit"></span>
+        {% trans %}edit{% endtrans %}
+    </a>
+    {% if answer.offensive_flag_count > 0 %}
+    <a id="answer-offensive-remove-flag-{{ answer.id }}"
+        class="question-flag offensive-flag btn btn-default"
+        title="{% trans %}remove offensive flag{% endtrans %}"
+    >
+        <span class="glyphicon glyphicon-flag"></span>
+        {% trans %}remove flag{% endtrans %}
+    </a>
+    <a id="answer-offensive-flag-{{ answer.id }}"
+        class="question-flag offensive-flag btn btn-default"
+        title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}"
+    >
+        {% trans %}flag offensive{% endtrans %} ({{ answer.offensive_flag_count }})</a>
+    </a>
+    {% else %}
+    <a id="answer-offensive-flag-{{ answer.id }}"
+        class="question-flag offensive-flag btn btn-default"
+        title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}"
+    >
+        <span class="glyphicon glyphicon-flag"></span>
+        {% trans %}flag offensive{% endtrans %}
+    </span>
+    {% endif %}
+    <a id='post-{{answer.id}}-delete' class="question-delete btn btn-default">
+        <span class="glyphicon glyphicon-trash"></span>
+        {% if answer.deleted %}{% trans %}undelete{% endtrans %}{% else %}{% trans %}delete{% endtrans %}{% endif %}
+    </a>
+    <a id="post-{{answer.id}}-publish" data-answer-id="{{ answer.id }}"
+        {% if answer.id in published_answer_ids %}
+            class="btn btn-default answer-unpublish">
+            <span class="glyphicon glyphicon-remove"></span>
+            {% trans %}unpublish{% endtrans %}</a>
+        {% else %}
+            class="btn btn-default answer-publish">
+            <span class="glyphicon glyphicon-share"></span>
+            {% trans %}publish{% endtrans %}
+        {% endif %}
+    </a>
+    <a  class="permant-link btn btn-default"
+        href="{{ answer.get_absolute_url(question_post=question) }}"
+        title="{% trans %}permanent link{% endtrans %}">
+        <span class="glyphicon glyphicon-link"></span>
+        {% trans %}link{% endtrans %}
+    </a>
+    <div class="btn-group btn-group-xs">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            {% trans %}more{% endtrans %}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right" role="menu">
+            <li id='post-{{answer.id}}-convert'>
+                <a href="{% url repost_answer_as_comment_under_question %}" class="postable"
+                    data-field-name="answer_id" data-field-value="{{answer.id}}">
+                    {% trans %}repost as a question comment{% endtrans %}
+                </a>
+            </li>
+            <li id='post-{{ answer.id }}-repost-as-comment-under-previous-answer'>
+                <a href="{% url repost_answer_as_comment_under_previous_answer %}" class="postable"
+                    data-field-name="answer_id" data-field-value="{{answer.id}}">
+                    {% trans %}repost as a comment under the older answer{% endtrans %}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    askbot['functions']['hideConvertAnswerLinks']('{{ answer.id }}');
+    askbot['functions']['hidePublishAnswerLink']('{{ answer.id }}');
+    askbot['functions']['renderPostControls']('{{ answer.id }}');
+</script>

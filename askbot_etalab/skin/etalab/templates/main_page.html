@@ -8,13 +8,15 @@
     there is no html markup in this file
 #}
 <!-- questions.html 2 -->
+{% block forejs %}
+    {% include "main_page/custom_head_javascript.html" ignore missing %}
+{% endblock %}
 {% block title %}{% spaceless %}{% trans %}Questions{% endtrans %}{% endspaceless %}{% endblock %}
 {% block content %}
     {% include "main_page/tab_bar.html" %}
-    <a class="btn btn-primary" href="{{ search_state.full_ask_url() }}">
-        {% trans %}Ask Your Question{% endtrans %}
-    </a>
-    {# {% include "main_page/headline.html" %} #}
+    {% include "main_page/headline.html" %}
+    <div class="clearfix"></div>
+    <hr class="slim" />
     {# ==== BEGIN: main_page/content.html === #}
     <div id="question-list">
         {% include "main_page/questions_loop.html" %}
@@ -26,6 +28,11 @@
     {% include "main_page/sidebar.html" %}
 {% endblock %} #}
 {% block endjs %}
+    <script type="text/javascript">
+        {# cant cache this #}
+        askbot['settings']['showSortByRelevance'] = {{ show_sort_by_relevance|as_js_bool }};
+    </script>
     {% include "main_page/javascript.html" %}
+    {% include "main_page/custom_javascript.html" ignore missing %}
 {% endblock %}
 <!-- end questions.html -->

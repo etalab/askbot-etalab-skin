@@ -9,25 +9,25 @@
             <li>
                 <a href="{% url questions %}" >
                     <span class="glyphicon glyphicon-question-sign"></span>
-                    {% trans %}questions{% endtrans %}
+                    {% trans %}Questions{% endtrans %}
                 </a>
             </li>
             <li>
                 <a href="{% url tags %}" {% if active_tab == 'tags' %}class="active"{% endif %}>
                     <span class="glyphicon glyphicon-tags"></span>
-                    {% trans %}tags{% endtrans %}
+                    {% trans %}Tags{% endtrans %}
                 </a>
             </li>
             <li>
             {% if settings.GROUPS_ENABLED %}
                 <a {% if active_tab == 'groups' %}class="active"{% endif %} href="{% url groups %}" data-target="#" >
                     <span class="glyphicon glyphicon-user"></span>
-                    {% trans %}people & groups{% endtrans %}
+                    {% trans %}People & groups{% endtrans %}
                 </a>
             {% else %}
                 <a href="{% url users %}" {% if active_tab == 'users' %}class="active"{% endif %}>
                     <span class="glyphicon glyphicon-user"></span>
-                    {% trans %}users{% endtrans %}
+                    {% trans %}Users{% endtrans %}
                 </a>
             {% endif %}
             </li>

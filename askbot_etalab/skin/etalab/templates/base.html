@@ -42,9 +42,9 @@
     {% endif %}
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+    {% block forestyle %}{% endblock %}
     <link href="{{"/css/etalab-askbot.min.css"|media }}" rel="stylesheet" type="text/css" />
 
-    {% block forestyle %}{% endblock %}
     {% include "head_js.html" %}
     {% block forejs %}{% endblock %}
 
@@ -55,19 +55,13 @@
 
     <div class="full-container">
 
-        <div class="notify" style="display:none">
-            {% if user_messages %}
-                {% for message in user_messages %}
-                      <p class="notification">{{ message }}</p>
-                {% endfor %}
-            {% endif %}
-            <a id="closeNotify" onclick="notify.close(true)"></a>
+        {# System messages #}
+        {% for message in user_messages %}
+        <div class="alert alert-dismissable alert-info">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
         </div>
-
-        {# <div class="alert alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <strong>Warning!</strong> Best check yo self, you're not looking too good.
-        </div> #}
+        {% endfor %}
 
         <div class="row">
             <div class="col-sm-3 col-md-3">
@@ -94,6 +88,12 @@
 
     {% include "footer_js.html" %}
 
-    {% block javascript %}{% endblock %}
+    {% block endjs %}{% endblock %}
+
+    <script type="text/javascript">
+        for (url_name in askbot['urls']){
+            askbot['urls'][url_name] = cleanUrl(askbot['urls'][url_name]);
+        }
+    </script>
 </body>
 </html>

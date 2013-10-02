@@ -126,11 +126,14 @@
 
 <nav class="navbar navbar-static-top navbar-subnav" role="navigation">
     <div class="navbar-left col-sm-4 col-md-3 col-xs-12 collapse subnav-collapse">
-        <a class="btn btn-primary navbar-btn btn-block"
-                title="{% trans %}Publish a dataset !{% endtrans %}"
-                href="{{ etalab.HOME_URL }}/{{current_language_code}}/dataset/new">
-            <span class="glyphicon glyphicon-plus-sign"></span>
-            {% trans %}Publish a dataset !{% endtrans %}
+        {% if not search_state %}  {#  get empty SearchState() if there's none #}
+            {% set search_state=search_state|get_empty_search_state %}
+        {% endif %}
+        <a id="askButton" class="btn btn-primary navbar-btn btn-block"
+                title="{% if group %}{% trans %}Ask the Group{% endtrans %}{% else %}{% trans %}Ask Your Question{% endtrans %}{% endif %}"
+                href="{{ search_state.full_ask_url() }}{% if group %}{% if '?' in search_state.full_ask_url() %}&{% else %}?{% endif %}group_id={{ group.id }}{% endif %}">
+            <span class="glyphicon glyphicon-question-sign"></span>
+            {% if group %}{% trans %}Ask the Group{% endtrans %}{% else %}{% trans %}Ask Your Question{% endtrans %}{% endif %}
         </a>
     </div>
     <div class="col-sm-8 col-md-9 col-xs-12 navbar-left">

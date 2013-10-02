@@ -1,0 +1,57 @@
+<div class="btn-group btn-group-xs">
+    <a id="post-{{question.id}}-edit" class="btn btn-default" href="{% url edit_question question.id %}">
+        <span class="glyphicon glyphicon-edit"></span>
+        {% trans %}edit{% endtrans %}
+    </a>
+    <a id="retag" class="btn btn-default" href="{% url retag_question question.id %}">
+        <span class="glyphicon glyphicon-tag"></span>
+        {% trans %}retag{% endtrans %}
+    </a>
+    {% if question.offensive_flag_count > 0 %}
+        <a id="question-offensive-remove-flag-{{ question.id }}"
+            class="offensive-flag question-flag btn btn-default"
+            title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}"
+        >
+            <span class="glyphicon glyphicon-flag"></span>
+            {% trans %}remove flag{% endtrans %}
+        </a>
+        <a id="question-offensive-flag-{{ question.id }}"
+            class="offensive-flag question-flag btn btn-default"
+            title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}"
+        >
+            <span class="glyphicon glyphicon-flag"></span>
+            {% trans %}flag offensive{% endtrans %} ({{ question.offensive_flag_count }})
+        </a>
+    {% else %}
+        <a id="question-offensive-flag-{{ question.id }}"
+            class="offensive-flag question-flag btn btn-default"
+            title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}"
+        >
+            <span class="glyphicon glyphicon-flag"></span>
+            {% trans %}flag offensive{% endtrans %}
+        </a>
+    {% endif %}
+    {% if thread.closed %}
+        <a class="question-close btn btn-default" href="{% url reopen question.id %}">
+            <span class="glyphicon glyphicon-folder-open"></span>
+            {% trans %}reopen{% endtrans %}
+        </a>
+    {% else %}
+        <a class="question-close btn btn-default" href="{% url close question.id %}">
+            <span class="glyphicon glyphicon-folder-close"></span>
+            {% trans %}close{% endtrans %}
+        </a>
+    {% endif %}
+    <a id="post-{{question.id}}-delete" class="question-delete btn btn-default">
+        <span class="glyphicon glyphicon-trash"></span>
+        {% if question.deleted %}
+            {% trans %}undelete{% endtrans %}
+        {% else %}
+            {% trans %}delete{% endtrans %}
+        {% endif %}
+    </a>
+</div>
+<script type="text/javascript">
+    var retagUrl = "{% url retag_question question.id %}";
+    askbot['functions']['renderPostControls']('{{question.id}}');
+</script>

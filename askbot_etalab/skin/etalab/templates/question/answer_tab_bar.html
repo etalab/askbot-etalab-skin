@@ -1,0 +1,28 @@
+<div class="tabBar tabBar-answer">
+    <h2 id="questionCount">
+        {% trans counter=answer_count %}
+            {{counter}} Answer
+            {% pluralize %}
+            {{counter}} Answers
+        {% endtrans %}
+    </h2>
+
+    <div class="btn-group btn-group-sm pull-right">
+        <a href class="btn btn-default disabled">{% trans %}Sort by »{% endtrans %}</a>
+        <a id="oldest" href="{{ question.get_absolute_url() }}?sort=oldest#sort-top"
+            title="{% trans %}oldest answers will be shown first{% endtrans %}"
+            class="btn btn-default">
+            {% trans %}oldest{% endtrans %}
+        </a>
+        <a id="latest" href="{{ question.get_absolute_url() }}?sort=latest#sort-top"
+            title="{% trans %}newest answers will be shown first{% endtrans %}"
+            class="btn btn-default">
+            {% trans %}newest{% endtrans %}
+        </a>
+        <a id="votes" href="{{ question.get_absolute_url() }}?sort=votes#sort-top"
+            title="{% trans %}most voted answers will be shown first{% endtrans %}"
+            class="btn btn-default">
+            {% trans %}most voted{% endtrans %}
+        </a>
+    </div>
+</div>
