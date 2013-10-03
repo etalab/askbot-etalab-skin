@@ -9,5 +9,4 @@
 /askbot_etalab/skin/etalab/media/css
 /askbot_etalab/skin/etalab/media/fonts
 /askbot_etalab/skin/etalab/media/img
-/askbot_etalab/skin/etalab/media/js/etalab*.js
-/askbot_etalab/skin/etalab/media/js/modernizr*.js
+/askbot_etalab/skin/etalab/media/js/libs

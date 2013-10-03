@@ -2,21 +2,6 @@
    this template is included at the very bottow of the
    main template "base.html"
 #}
-{% if settings.DEBUG %}
-<!--[if lt IE 9]>
-    <script src="{{'/js/etalab-askbot-legacy.js'|media }}"></script>
-<![endif]-->
-<!--[if gte IE 9]><!-->
-    <script src="{{'/js/etalab-askbot.js'|media }}"></script>
-<!--<![endif]-->
-{% else %}
-<!--[if lt IE 9]>
-    <script src="{{'/js/etalab-askbot-legacy.min.js'|media }}"></script>
-<![endif]-->
-<!--[if gte IE 9]><!-->
-    <script src="{{'/js/etalab-askbot.min.js'|media }}"></script>
-<!--<![endif]-->
-{% endif %}
 
 <div id="no-javascript">
     <noscript class="noscript">
@@ -65,8 +50,25 @@
     {% endif %}
 </script>
 {# everything below until the custom js and google analytics is compressable #}
+
+<!--[if lt IE 9]>
+    {% compress js %}
+    <script type='text/javascript' src="{{'/js/libs/jquery-legacy.js'|media }}"></script>
+    {% endcompress %}
+<![endif]-->
+<!--[if gte IE 9]><!-->
+    {% compress js %}
+    <script type='text/javascript' src="{{'/js/libs/jquery.js'|media }}"></script>
+    {% endcompress %}
+<!--<![endif]-->
+
 {% compress js %}
-<!-- History.js -->
+<script type='text/javascript' src="{{'/js/libs/bootstrap.js'|media }}"></script>
+<script type='text/javascript' src="{{'/js/libs/jquery.cookie.js'|media }}"></script>
+<script type='text/javascript' src="{{'/js/libs/swig.js'|media }}"></script>
+<script type='text/javascript' src="{{'/js/libs/typeahead.js'|media }}"></script>
+<script type='text/javascript' src="{{'/js/libs/etalab-site.js'|media }}"></script>
+<script type='text/javascript' src="{{'/js/etalab-askbot.js'|media }}"></script>
 <script type='text/javascript' src="{{"/js/jquery.history.js"|media }}"></script>
 <script type='text/javascript' src="{{"/js/jquery.timeago.js"|media }}"></script>
 <script type='text/javascript' src="{{"/js/jquery.color.js"|media }}"></script>

@@ -1,12 +1,9 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        clean: [
-            "askbot_etalab/skin/etalab/media/{css,fonts,img}",
-            "askbot_etalab/skin/etalab/media/js/{etalab,modernizr}*.js"
-        ],
+        clean: ['askbot_etalab/skin/etalab/media/{css,fonts,img,js/libs}'],
         copy: {
-            bower: {
+            assets: {
                 files: [{
                     expand: true,
                     cwd: 'bower/bootstrap/fonts',
@@ -32,40 +29,30 @@ module.exports = function(grunt) {
                     dest: 'askbot_etalab/skin/etalab/media/img',
                     filter: 'isFile'
                 }]
-            }
-        },
-        concat: {
-            options: {
-                separator: ';',
             },
-            main: {
+            js: {
+                expand: true,
+                cwd: 'bower',
                 src: [
-                    'bower/jquery/jquery.js',
-                    'bower/bootstrap/dist/js/bootstrap.js',
-                    'bower/typeahead.js/dist/typeahead.js',
-                    'bower/jquery.cookie/jquery.cookie.js',
-                    'bower/swig/index.js',
-                    'bower/etalab-assets/js/etalab-site.js',
-                    'js/etalab-askbot.js'
+                    'bootstrap/dist/js/bootstrap.js',
+                    'etalab-assets/js/etalab-site.js',
+                    'jquery-legacy/index.js',
+                    'jquery.cookie/jquery.cookie.js',
+                    'jquery.validation/jquery.validate.js',
+                    'jquery/jquery.js',
+                    'swig/index.js',
+                    'typeahead.js/dist/typeahead.js',
                 ],
-                dest: 'askbot_etalab/skin/etalab/media/js/etalab-askbot.js',
-            },
-            legacy: {
-                src: [
-                    'bower/jquery-legacy/index.js',
-                    'bower/bootstrap/dist/js/bootstrap.js',
-                    'bower/etalab-assets/js/etalab-site.js',
-                    'bower/swig/index.js',
-                    'js/etalab-askbot.js'
-                ],
-                dest: 'askbot_etalab/skin/etalab/media/js/etalab-askbot-legacy.js'
-            },
-            modernizr: {
-                src: [
-                    'bower/modernizr/modernizr.js',
-                    'bower/respond/respond.src.js'
-                ],
-                dest: 'askbot_etalab/skin/etalab/media/js/modernizr.js'
+                dest: 'askbot_etalab/skin/etalab/media/js/libs/',
+                rename: function(dest, src) {
+                    var parts = src.split('/');
+                    console.log(dest, src);
+                    if (parts[parts.length - 1] === 'index.js') {
+                        return dest + parts[parts.length - 2] + '.js';
+                    } else {
+                        return dest + parts[parts.length - 1];
+                    }
+                }
             }
         },
         less: {
@@ -95,17 +82,14 @@ module.exports = function(grunt) {
             },
             build: {
                 files: {
-                    'askbot_etalab/skin/etalab/media/js/etalab-askbot.min.js': ['askbot_etalab/skin/etalab/media/js/etalab-askbot.js'],
-                    'askbot_etalab/skin/etalab/media/js/etalab-askbot-legacy.min.js': ['askbot_etalab/skin/etalab/media/js/etalab-askbot-legacy.js'],
-                    'askbot_etalab/skin/etalab/media/js/modernizr.min.js': ['askbot_etalab/skin/etalab/media/js/modernizr.js']
+                    'askbot_etalab/skin/etalab/media/js/libs/modernizr.min.js': [
+                        'bower/modernizr/modernizr.js',
+                        'bower/respond/respond.src.js'
+                    ]
                 }
             }
         },
         watch: {
-            javascript: {
-                files: ['js/etalab-askbot.js'],
-                tasks: ['concat', 'uglify']
-            },
             style: {
                 files: ['less/etalab-askbot.less'],
                 tasks: ['less']
@@ -123,7 +107,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     // Register the default tasks
-    grunt.registerTask('default', ['copy', 'concat', 'less', 'uglify']);
+    grunt.registerTask('default', ['copy', 'less', 'uglify']);
     grunt.registerTask('serve', ['default', 'watch']);
     grunt.registerTask('dist', ['clean', 'default']);
 
