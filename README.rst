@@ -6,9 +6,16 @@ Askbot skin for ETALAB
 Installation
 ------------
 
+This modification require a specific Askbot version.
+Right now, you can use the version hosted at `Etalab repository`_
+until these Pull Requests are merged:
+
+- `#170 <https://github.com/ASKBOT/askbot-devel/pull/170>`_
+- `#175 <https://github.com/ASKBOT/askbot-devel/pull/175>`_
+
 Add the following to your settings.py
 
-.. code-block:: python
+.. code:: python
 
     ETALAB_DOMAIN = 'etalab.dev'
     ETALAB_HOME_URL = 'http://www.etalab.dev'
@@ -46,33 +53,36 @@ Development
 
 You need bower, less, uglifyjs and grunt installed:
 
-.. code-block:: console
+.. code:: console
 
     $ sudo npm install -g bower uglify-js less grunt-cli
 
 Install local grunt/npm requirements:
 
-.. code-block:: console
+.. code:: console
 
     $ npm install
 
 Update localization on transifex
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: console
+.. code:: console
 
     $ make i18n
 
 Build assets
 ~~~~~~~~~~~~
 
-.. code-block:: console
+.. code:: console
 
     $ make assets
 
 Generate a distributable source package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: console
+.. code:: console
 
     $ make dist
+
+
+.. _Etalab repository: https://github.com/etalab/askbot-devel/tree/for-etalab
