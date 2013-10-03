@@ -1,0 +1,78 @@
+{% extends "two_column_body.html" %}
+{% block content %}
+<ol class="breadcrumb">
+    <li>{% trans %}Settings{% endtrans %}</li>
+    <li>{{ settings_group.super_group.name }}</li>
+    <li class="active">{{ settings_group.name }}</li>
+</ol>
+<div class="settings-main">
+{% if form.errors %}
+    <p class="errornote">
+    {% trans counter = form.errors|length %}Please correct the error below.{% pluralize %}Please correct the errors below.{% endtrans %}
+    </p>
+{% endif %}
+{% if form.fields %}
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <table
+        class="settings"
+        summary="{% trans name = settings_group.name %}Settings included in {{ name }}.{% endtrans %}"
+    >
+        {% for field in form %}
+            {% if field.is_hidden %}
+                <!-- skip hidden field {{field.key}} -->
+            {% else %}
+                {% if field.errors %}
+                <tr class="error">
+                    <td colspan="2">{{ field.errors }}</td>
+                </tr>
+                {% endif %}
+                <tr{% if field.errors %} class="error"{% endif %}>
+                    <td class="setting-label">
+                        {{ field.label_tag() }}
+                        {% if field.help_text %}
+                            <p class="help">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                        {% if field.field.default_text %}
+                            <p class="help">{{ field.field.default_text|safe }}</p>
+                        {% endif %}
+                    </td>
+                    <td class="setting-input">{{ field }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    {% for field in form %}
+        {% if field.is_hidden %}
+            {{field}}
+        {% endif %}
+    {% endfor %}
+    <input type="submit" value="Save" class="default" />
+</form>
+{% else %}
+    <p>{% trans %}You don't have permission to edit values.{% endtrans %}</p>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% if all_super_groups %}
+    <div class="settings-nav panel panel-default">
+    {% for super_group in all_super_groups %}
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ super_group.name }}</h3>
+        </div>
+        <div class="list-group">
+            {% for g in super_group.groups %}
+                {% if g.keys %}
+                    <a  href="{% url "group_settings" g.key %}"
+                        class="list-group-item {% if g.key == settings_group.key %}active{% endif %}">
+                        {{g.name}}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
+{% endif %}
+<div class="clearfix"></div>
+{% endblock %}

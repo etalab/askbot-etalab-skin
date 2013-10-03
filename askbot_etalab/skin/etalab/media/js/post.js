@@ -501,7 +501,7 @@ CommentVoteButton.prototype.createDom = function(){
     if (this._score > 0){
         this._element.html(this._score);
     }
-    this._element.addClass('upvote');
+    this._element.addClass('upvote glyphicon glyphicon-thumbs-up');
     if (this._voted){
         this._element.addClass('upvoted');
     }
@@ -592,27 +592,27 @@ var Vote = function(){
         return $(favoriteNumber);
     };
     var getQuestionVoteUpButton = function(){
-        var questionVoteUpButton = 'div.'+ voteContainerId +' div[id^="'+ imgIdPrefixQuestionVoteup +'"]';
+        var questionVoteUpButton = 'div.'+ voteContainerId +' span[id^="'+ imgIdPrefixQuestionVoteup +'"]';
         return $(questionVoteUpButton);
     };
     var getQuestionVoteDownButton = function(){
-        var questionVoteDownButton = 'div.'+ voteContainerId +' div[id^="'+ imgIdPrefixQuestionVotedown +'"]';
+        var questionVoteDownButton = 'div.'+ voteContainerId +' span[id^="'+ imgIdPrefixQuestionVotedown +'"]';
         return $(questionVoteDownButton);
     };
     var getAnswerVoteUpButtons = function(){
-        var answerVoteUpButton = 'div.'+ voteContainerId +' div[id^="'+ imgIdPrefixAnswerVoteup +'"]';
+        var answerVoteUpButton = 'div.'+ voteContainerId +' span[id^="'+ imgIdPrefixAnswerVoteup +'"]';
         return $(answerVoteUpButton);
     };
     var getAnswerVoteDownButtons = function(){
-        var answerVoteDownButton = 'div.'+ voteContainerId +' div[id^="'+ imgIdPrefixAnswerVotedown +'"]';
+        var answerVoteDownButton = 'div.'+ voteContainerId +' span[id^="'+ imgIdPrefixAnswerVotedown +'"]';
         return $(answerVoteDownButton);
     };
     var getAnswerVoteUpButton = function(id){
-        var answerVoteUpButton = 'div.'+ voteContainerId +' div[id="'+ imgIdPrefixAnswerVoteup + id + '"]';
+        var answerVoteUpButton = 'div.'+ voteContainerId +' span[id="'+ imgIdPrefixAnswerVoteup + id + '"]';
         return $(answerVoteUpButton);
     };
     var getAnswerVoteDownButton = function(id){
-        var answerVoteDownButton = 'div.'+ voteContainerId +' div[id="'+ imgIdPrefixAnswerVotedown + id + '"]';
+        var answerVoteDownButton = 'div.'+ voteContainerId +' span[id="'+ imgIdPrefixAnswerVotedown + id + '"]';
         return $(answerVoteDownButton);
     };
 
@@ -686,7 +686,7 @@ var Vote = function(){
 
     var bindEvents = function(){
         // accept answers
-        var acceptedButtons = 'div.'+ voteContainerId +' div[id^="'+ imgIdPrefixAccept +'"]';
+        var acceptedButtons = 'div.'+ voteContainerId +' span[id^="'+ imgIdPrefixAccept +'"]';
         $(acceptedButtons).unbind('click').click(function(event){
            Vote.accept($(event.target));
         });
@@ -1035,7 +1035,6 @@ var Vote = function(){
         },
 
         vote: function(object, voteType){
-            debugger;
             if (!currentUserId || currentUserId.toUpperCase() == "NONE") {
                 if (voteType == VoteType.questionSubscribeUpdates || voteType == VoteType.questionUnsubscribeUpdates){
                     getquestionSubscribeSidebarCheckbox().removeAttr('checked');
@@ -1810,7 +1809,7 @@ EditCommentForm.prototype.createDom = function(){
     this._cancel_btn = $('<button class="submit cancel btn btn-warning"></button>');
     this._cancel_btn.html(gettext('cancel'));
     // this._controlsBox.append(this._cancel_btn);
-    $('<div class="btn-group pull-right"></div>')
+    $('<div class="btn-group btn-group-sm pull-right"></div>')
         .append(this._submit_btn)
         .append(this._cancel_btn)
         .appendTo(this._controlsBox);
@@ -2010,13 +2009,15 @@ Comment.prototype.decorate = function(element){
         this._comment_body = commentBody;
     }
 
-    var delete_img = this._element.find('span.delete-icon');
-    if (delete_img.length > 0){
+    var deleter = this._element.find('.comment-delete');
+    if (deleter.length > 0) {
         this._deletable = true;
         this._delete_icon = new DeleteIcon(this.deletePrompt);
         this._delete_icon.setHandler(this.getDeleteHandler());
-        this._delete_icon.decorate(delete_img);
-    }
+        this._delete_icon.decorate(deleter);
+        this._comment_delete = deleter;
+    };
+
     var edit_link = this._element.find('a.edit');
     if (edit_link.length > 0){
         this._editable = true;
@@ -2031,10 +2032,10 @@ Comment.prototype.decorate = function(element){
         this._convert_link.decorate(convert_link);
     }
 
-    var deleter = this._element.find('.comment-delete');
-    if (deleter.length > 0) {
-        this._comment_delete = deleter;
-    };
+    var toolbar = this._element.find('.btn-group');
+    if (toolbar.length > 0){
+        this._comment_toolbar = toolbar;
+    }
 
     var vote = new CommentVoteButton(this);
     vote.decorate(this._element.find('.comment-votes .upvote'));
@@ -2092,8 +2093,6 @@ Comment.prototype.getParentId = function(){
 Comment.prototype.setContent = function(data){
     this._data = $.extend(this._data, data);
     this._element.addClass('comment');
-    this._element.css('display', 'table');//@warning: hardcoded
-    //display is set to "block" if .show() is called, but we need table.
     this._element.attr('id', 'comment-' + this._data['id']);
 
     // 1) create the votes element if it is not there
@@ -2121,18 +2120,7 @@ Comment.prototype.setContent = function(data){
         this._element.append(contentBox);
     }
 
-    // 2) create the comment deleter if it is not there
-    if (this._comment_delete === undefined) {
-        this._comment_delete = $('<div class="comment-delete"></div>');
-        if (this._deletable){
-            this._delete_icon = new DeleteIcon(this._delete_prompt);
-            this._delete_icon.setHandler(this.getDeleteHandler());
-            this._comment_delete.append(this._delete_icon.getElement());
-        }
-        this._contentBox.append(this._comment_delete);
-    }
-
-    // 3) create or replace the comment body
+    // 2) create or replace the comment body
     if (this._comment_body === undefined) {
         this._comment_body = $('<div class="comment-body"></div>');
         this._contentBox.append(this._comment_body);
@@ -2149,6 +2137,15 @@ Comment.prototype.setContent = function(data){
         this._comment_body.html(this._data['html']);
     }
     //this._comment_body.append(' &ndash; ');
+
+    // 3) create the comment deleter if it is not there
+    if (this._comment_delete === undefined && this._deletable) {
+        this._comment_delete = $('<button class="comment-delete"></button>');
+        this._delete_icon = new DeleteIcon(this._delete_prompt);
+        this._delete_icon.setHandler(this.getDeleteHandler());
+        this._delete_icon.decorate(this._comment_delete);
+        this._comment_body.prepend(this._comment_delete);
+    }
 
     // 4) create user link if absent
     if (this._user_link !== undefined) {
@@ -2174,13 +2171,20 @@ Comment.prototype.setContent = function(data){
     this._comment_body.append(this._comment_added_at);
     this._comment_body.append(')');
 
+    if (this._comment_toolbar !== undefined) {
+        this._comment_toolbar.detach();
+        this._comment_toolbar = undefined;
+    }
+    this._comment_toolbar = $('<div class="btn-group btn-group-xs pull-right"></div>');
+    this._comment_body.append(this._comment_toolbar);
+
     if (this._editable) {
         if (this._edit_link !== undefined) {
             this._edit_link.dispose();
         }
         this._edit_link = new EditLink();
         this._edit_link.setHandler(this.getEditHandler())
-        this._comment_body.append(this._edit_link.getElement());
+        this._comment_toolbar.append(this._edit_link.getElement());
     }
 
     if (this._is_convertible) {
@@ -2188,7 +2192,7 @@ Comment.prototype.setContent = function(data){
             this._convert_link.dispose();
         }
         this._convert_link = new CommentConvertLink(this._data['id']);
-        this._comment_body.append(this._convert_link.getElement());
+        this._comment_toolbar.append(this._convert_link.getElement());
     }
     this._blank = false;
 };

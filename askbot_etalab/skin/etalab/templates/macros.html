@@ -38,20 +38,13 @@
 {%- endmacro -%}
 
 {%- macro post_vote_buttons(post = None) -%}
-<div id="{{post.post_type}}-img-upvote-{{ post.id }}"
-    class="{{post.post_type}}-img-upvote post-vote upvote">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-</div>
+<span id="{{post.post_type}}-img-upvote-{{ post.id }}" class="glyphicon glyphicon-thumbs-up post-vote upvote"></span>
 <div
     id="{{post.post_type}}-vote-number-{{ post.id }}"
     class="vote-number"
     title="{% trans %}current number of votes{% endtrans %}"
 >{{ post.score }}</div>
-<div
-    id="{{post.post_type}}-img-downvote-{{ post.id }}"
-    class="{{post.post_type}}-img-downvote post-vote downvote">
-    <span class="glyphicon glyphicon-chevron-down"></span>
-</div>
+<span id="{{post.post_type}}-img-downvote-{{ post.id }}" class="glyphicon glyphicon-thumbs-down post-vote downvote"></span>
 <script type="text/javascript">
     askbot['functions']['renderPostVoteButtons']('{{post.post_type}}', '{{post.id}}');
 </script>
@@ -401,7 +394,7 @@ for the purposes of the AJAX comment editor #}
 -%}
     {% spaceless %}
     {% if post.comment_count > 0 %}
-        <h2 class="comment-title">{% trans %}Comments{% endtrans %}</h2>
+        <h3 class="comment-title">{% trans %}Comments{% endtrans %}</h3>
         <div class="clearfix"></div>
     {% endif %}
     {% set widget_id = 'comments-for-' + post.post_type + '-' + post.id|string %}
@@ -420,25 +413,20 @@ for the purposes of the AJAX comment editor #}
                         {% if comment.score > 0 %}
                             <div
                                 id="comment-img-upvote-{{comment.id}}"
-                                class="upvote"
+                                class="upvote glyphicon glyphicon-thumbs-up"
                             >{{comment.score}}</div>
                             <script type="text/javascript">
                                 askbot['functions']['renderPostVoteButtons']('comment', '{{comment.id}}');
                             </script>
                         {% else %}
-                            <div class="upvote"></div>
+                            <span class="upvote glyphicon glyphicon-thumbs-up"></span>
                         {% endif %}
                     </div>
                     <div class="comment-content">
-                        <div
-                            id="post-{{comment.id}}-delete"
-                            class="comment-delete"
-                        >
-                            <span
-                                class="delete-icon"
-                                title="{% trans %}delete this comment{% endtrans %}"
-                            ></span>
-                        </div>
+                        <button id="post-{{comment.id}}-delete" type="button"
+                            class="close comment-delete" aria-hidden="true"
+                            title="{% trans %}delete this comment{% endtrans %}"
+                            >&times;</button>
                         <div class="comment-body">
                             {{comment.html}}
                             <a
@@ -446,7 +434,7 @@ for the purposes of the AJAX comment editor #}
                                 href="{{comment.author.get_profile_url()}}"
                             >{{comment.author.username|escape}}</a>
                             <span class="age">&nbsp;({{ timeago(comment.added_at) }})</span>
-                            <div class="btn-group btn-group-xs">
+                            <div class="btn-group btn-group-xs pull-right">
                                 <a id="post-{{comment.id}}-edit" class="edit btn btn-default">
                                     <span class="glyphicon glyphicon-edit"></span>
                                     {% trans %}edit{% endtrans %}
@@ -455,17 +443,6 @@ for the purposes of the AJAX comment editor #}
                                     data-field-name="commend_id" data-field-value="{{comment.id}}">
                                     {% trans %}convert to answer{% endtrans %}
                                 </a>
-                                {# <form
-                                    action=
-                                    method="POST"
-                                    accept-charset="utf-8"
-                                    class='convert-comment'
-                                >
-                                    {% csrf_token %}
-                                    <input type="hidden" value="{{comment.id}}" name="comment_id" id="id_comment_id">
-                                    <input type="submit" value="{% trans %}convert to answer{% endtrans %}"
-                                        class="btn btn-default btn-sm">
-                                </form> #}
                             </div>
                         </div>
                     </div>

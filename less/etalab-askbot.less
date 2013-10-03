@@ -8,6 +8,10 @@
 @answer: #eab243;
 @view: #d33f00;
 
+a:hover {
+    text-decoration: none;
+}
+
 hr.slim {
     margin: 5px;
 }
@@ -124,7 +128,12 @@ hr.slim {
     background-color: lighten(@bg-light, 10%);
     padding: 5px;
     border-radius: 4px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+
+    .nav-pills > li > a {
+        color: white;
+        padding: 5px;
+    }
 }
 
 .tabBar-answer h2{
@@ -136,6 +145,10 @@ hr.slim {
     font-weight: bold;
 }
 
+
+/**
+ * Common posts style
+ */
 .post {
     h1 {
         .condensed();
@@ -151,21 +164,20 @@ hr.slim {
         text-align: center;
         font-size: @font-size-large;
 
-        .post-vote {
+        .post-vote, .answer-img-accept {
             font-weight: bold;
             cursor: pointer;
-            &.upvote {
-                .glyphicon:hover {
-                    color: green;
-                    .scale(1.5);
-                }
+
+            &:hover {
+                .scale(1.5);
             }
 
-            &.downvote {
-                .glyphicon:hover {
-                    color: red;
-                    .scale(1.5);
-                }
+            &.upvote:hover, &.upvote.on, {
+                color: green;
+            }
+
+            &.downvote:hover, &.downvote.on {
+                color: red;
             }
         }
 
@@ -190,6 +202,7 @@ hr.slim {
 
     .post-content {
         display: table-cell;
+        padding-bottom: 5px;
 
         .post-body {
             margin: 5px;
@@ -204,6 +217,76 @@ hr.slim {
     }
 }
 
+/**
+ * Answer specifics
+ */
+.answer {
+
+    &.accepted-answer {
+        .answer-img-accept {
+            color: green;
+        }
+    }
+
+    .post-content {
+        border-bottom: 1px solid darken(@gray-lighter, 5%);
+    }
+
+}
+
+/**
+ * Comments specifics
+ */
+.comment-title {
+    color: @highlight;
+}
+
+.comment {
+    display: table;
+    width: 100%;
+    padding-bottom: 5px;
+
+    &:hover > * {
+        background-color: darken(@body-bg, 10%);
+    }
+
+    .comment-votes {
+        display: table-cell;
+        width: 30px;
+        text-align: center;
+
+        .upvote {
+            cursor: pointer;
+
+            &:hover {
+                .scale(1.5);
+                color: green;
+            }
+
+            &.upvoted {
+                color: green;
+            }
+        }
+    }
+
+    &:not(:hover) .upvote {
+        display: none;
+    }
+
+    .comment-content {
+        display: table-cell;
+        padding: 5px;
+        border-bottom: 1px solid darken(@gray-lighter, 5%);
+
+        .close {
+            line-height: 0.7;
+        }
+    }
+}
+
+.edit-comment-buttons {
+    margin-top: 5px;
+}
 
 
 .tags {
@@ -271,6 +354,13 @@ hr.slim {
     padding: 10px;
 }
 
-.edit-comment-buttons {
-    margin-top: 5px;
+// Settings
+ol.breadcrumb {
+    background-color: lighten(@bg-light, 20%);
+    border-radius: 5px;
+    color: white;
+
+    .active {
+        color: black;
+    }
 }
