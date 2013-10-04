@@ -1,14 +1,10 @@
 {% import "macros.html" as macros %}
-<form id="fmask" action="" method="post" >{% csrf_token %}
-    <div class="form-item ask-form-bar">
-        <div id="askFormBar">
-            <input id="id_title" class="questionTitleInput" name="title" autocomplete="off"
-                value="{% if form.initial.title %}{{form.initial.title|escape}}{% endif %}"/>
-            <span class="form-error">{{ form.title.errors }}</span>
-        </div>
-        <div class="title-desc">
-            {{ form.title.help_text }}
-        </div>
+<form id="fmask" action="" method="post" class="form-horizontal" novalidate>{% csrf_token %}
+    <div class="form-group{% if form.title.errors %} has-error{% endif %}">
+        <input id="id_title" class="form-control" name="title" autocomplete="off"
+            value="{% if form.initial.title %}{{form.initial.title|escape}}{% endif %}"
+            placeholder="{{ form.title.help_text }}" required/>
+        <span class="help-block">{{ form.title.errors }}</span>
     </div>
     {{
         macros.edit_post(

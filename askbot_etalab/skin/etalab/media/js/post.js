@@ -52,24 +52,24 @@ function disableSubmitButton(form) {
 
 function setupFormValidation(form, validationRules, validationMessages, onSubmitCallback) {
     enableSubmitButton(form);
-    form.validate({
+    form.validate($.extend({
         debug: true,
         rules: (validationRules ? validationRules : {}),
         messages: (validationMessages ? validationMessages : {}),
-        errorElement: "span",
-        errorClass: "form-error",
-        errorPlacement: function(error, element) {
-            var span = element.next().find("span.form-error");
-            if (span.length === 0) {
-                span = element.parent().find("span.form-error");
-                if (span.length === 0){
-                    //for resizable textarea
-                    var element_id = element.attr('id');
-                    span = $('label[for="' + element_id + '"]');
-                }
-            }
-            span.replaceWith(error);
-        },
+        // errorElement: "span",
+        // errorClass: "form-error",
+        // errorPlacement: function(error, element) {
+        //     var span = element.next().find("span.form-error");
+        //     if (span.length === 0) {
+        //         span = element.parent().find("span.form-error");
+        //         if (span.length === 0){
+        //             //for resizable textarea
+        //             var element_id = element.attr('id');
+        //             span = $('label[for="' + element_id + '"]');
+        //         }
+        //     }
+        //     span.replaceWith(error);
+        // },
         submitHandler: function(form_dom) {
             disableSubmitButton($(form_dom));
 
@@ -80,7 +80,7 @@ function setupFormValidation(form, validationRules, validationMessages, onSubmit
                 form_dom.submit();
             }
         }
-    });
+    }, ETALAB_VALIDATION_RULES));
 }
 
 /**

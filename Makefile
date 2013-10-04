@@ -13,8 +13,12 @@ pyflakes:
 
 i18n:
 	@tx pull
-	@cd askbot_etalab && ../manage.py makemessages -a
+	@cd askbot_etalab && ../manage.py makemessages -a && ../manage.py makemessages -a -d djangojs
 	@tx push -s -t
+
+updatei18n:
+	@tx pull
+	@cd askbot_etalab && ../manage.py compilemessages
 
 dist: assets
 	@python setup.py clean

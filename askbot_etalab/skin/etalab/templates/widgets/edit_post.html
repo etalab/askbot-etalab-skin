@@ -52,29 +52,8 @@
         {% endif %}
     </div>
 {% endif %}
-{#% if 'summary' in post_form['fields'] %}
-    <!-- todo: either remove this field or make it folded by default -->
-    <div class="form-item revision-comment">
-        <strong>{{ post_form.summary.label_tag() }}</strong> <br/>
-        {{ post_form.summary }}
-        <div class="title-desc">
-            {{ post_form.summary.help_text }}
-        </div>
-        <div class="form-error" >{{ post_form.summary.errors }}</div>
-    </div>
-{% endif %#}
 
 {% if editor_type == 'markdown' %}
-    {# <div class="preview-toggle">
-        <span
-            id="pre-collapse"
-            title="{% trans %}Toggle the real time Markdown editor preview{% endtrans %}"
-        >
-            [{% trans %}hide preview{% endtrans %}]
-        </span>
-    </div>
-    <div class="clearfix"></div>
-    <div id="previewer" class="wmd-preview"></div> #}
     <div class="panel panel-default">
         <div class="panel-heading">
             <a data-toggle="collapse" href="#previewer">
@@ -87,6 +66,20 @@
 
 {% if user and user.is_authenticated() and user.is_administrator() %}
     {# admin can post answers or questions on behalf of anyone. #}
+    <!--div class="form-group{% if post_form.post_author_username.errors %} has-error{% endif %}">
+        <input id="id_post_author_username" class="form-control" autocomplete="off"
+            name="{{ post_form.post_author_username.html_name }}"
+            value="{% if post_form.initial.post_author_username %}{{post_form.initial.post_author_username|escape}}{% endif %}"
+            placeholder="{{ post_form.post_author_username.help_text }}"/>
+        <span class="help-block">{{ post_form.post_author_username.errors }}</span>
+    </div>
+    <div class="form-group{% if post_form.post_author_email.errors %} has-error{% endif %}">
+        <input id="id_post_author_email" class="form-control" autocomplete="off"
+            name="{{ post_form.post_author_email.html_name }}"
+            value="{% if post_form.initial.post_author_email %}{{post_form.initial.post_author_email|escape}}{% endif %}"
+            placeholder="{{ post_form.post_author_email.help_text }}"/>
+        <span class="help-block">{{ post_form.post_author_email.errors }}</span>
+    </div-->
     <table class="proxy-user-info">
         <tbody>
             <tr><td colspan="2">

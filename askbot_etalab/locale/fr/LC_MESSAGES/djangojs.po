@@ -1,0 +1,400 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 01:19-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: skin/etalab/media/js/live_search.js:196
+msgid "To see search results, 2 or more characters may be required"
+msgstr ""
+
+#: skin/etalab/media/js/live_search.js:218
+msgid "Ask Your Question"
+msgstr ""
+
+#: skin/etalab/media/js/live_search.js:299
+msgid "Sorry, this tag does not exist"
+msgid_plural "Sorry, these tags do not exist"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/media/js/live_search.js:313
+msgid "search or ask your question"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:28
+msgid "loading..."
+msgstr ""
+
+#: skin/etalab/media/js/post.js:100
+msgid "must be shorter than %(max_chars)s character"
+msgid_plural "must be shorter than %(max_chars)s characters"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/media/js/post.js:154 skin/etalab/media/js/post.js.c:1269
+msgid "tags cannot be empty"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:160
+msgid "details are required"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:163
+#, c-format
+msgid "details must have > %s character"
+msgid_plural "details must have > %s characters"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/media/js/post.js:171
+msgid "enter your question"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:174
+#, c-format
+msgid "question must have > %s character"
+msgid_plural "question must have > %s characters"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/media/js/post.js:193
+msgid "content cannot be empty"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:196
+#, c-format
+msgid "answer must be > %s character"
+msgid_plural "answer must be > %s characters"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/media/js/post.js:253
+msgid "Back to the question"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:303
+msgid "draft saved..."
+msgstr ""
+
+#: skin/etalab/media/js/post.js:548
+msgid "insufficient privilege"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:549
+msgid "cannot pick own answer as best"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:552 skin/etalab/media/js/post.js.c:1416
+msgid "please login"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:554
+msgid "anonymous users cannot follow questions"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:555
+msgid "anonymous users cannot subscribe to questions"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:556 skin/etalab/media/js/post.js.c:1426
+msgid "anonymous users cannot vote"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:558
+msgid "please confirm offensive"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:559
+msgid "please confirm removal of offensive flag"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:560
+msgid "anonymous users cannot flag offensive posts"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:561
+msgid "confirm delete"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:562
+msgid "anonymous users cannot delete/undelete"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:563
+msgid "post recovered"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:564
+msgid "post deleted"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:831
+msgid "Follow"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:840 skin/etalab/media/js/post.js.c:849
+#, c-format
+msgid "%s follower"
+msgid_plural "%s followers"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/media/js/post.js:845
+msgid "<div>Following</div><div class=\"unfollow\">Unfollow</div>"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:901
+msgid "remove flag"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:935 skin/etalab/media/js/post.js.c:964
+msgid "flag offensive"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:990 skin/etalab/media/js/post.js.c:1497
+msgid "undelete"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:995 skin/etalab/media/js/post.js.c:1501
+msgid "delete"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1218 skin/etalab/media/js/post.js.c:1445
+msgid "sorry, something is not right here"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1665
+msgid "add comment"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1671
+msgid "save comment"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1711
+#, c-format
+msgid "enter at least %s characters"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1713
+#, c-format
+msgid "enter at least %s more characters"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1723
+#, c-format
+msgid "%s characters left"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1810 skin/etalab/media/js/post.js.c:3097
+#: skin/etalab/media/js/post.js:4614
+msgid "cancel"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1828
+msgid "minor edit (don't send alerts)"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1860
+msgid "Are you sure you don't want to post this comment?"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1895
+msgid "just now"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:1961
+msgid "delete this comment"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:2281
+msgid "confirm delete comment"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:2425
+msgid "please sign in or register to post comments"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:2576
+msgid "Please enter question title (>10 characters)"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:2628 skin/etalab/media/js/post.js.c:4642
+msgid "Sorry, you have only read access"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:3091 skin/etalab/media/js/post.js.c:3885
+#: skin/etalab/media/js/post.js:4074
+msgid "save"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:3215
+msgid "Enter the logo url or upload an image"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:3241
+msgid "Do you really want to remove the image?"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:3357
+msgid "change logo"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:3358
+msgid "add logo"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:3460
+#, c-format
+msgid ""
+"tag \"%s\" was already added, no need to repeat (press \"escape\" to delete)"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:3469
+#, c-format
+msgid "a maximum of %s tag is allowed"
+msgid_plural "a maximum of %s tags are allowed"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/media/js/post.js:3815
+msgid "Delete category?"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:3904 skin/etalab/media/js/utils.js:1307
+msgid "edit"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:3991
+msgid "category name cannot be empty"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:4027
+msgid "already exists at the current level!"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:4063
+msgid "add category"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:4610
+msgid "save tags"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:4726
+msgid "Group name:"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:4752
+msgid "Shared with the following users:"
+msgstr ""
+
+#: skin/etalab/media/js/post.js:4758
+msgid "Shared with the following groups:"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:99
+msgid "and"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:606
+#, c-format
+msgid "page %s"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1306
+msgid "click to edit this comment"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1329
+msgid "convert to answer"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1377
+msgid "Ok"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1378 skin/etalab/media/js/utils.js.c:1831
+msgid "Cancel"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1643
+#, c-format
+msgid "Uploaded file: %s"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1658
+msgid "Choose a different image"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1660
+msgid "Choose a different file"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1674
+msgid "Oops, looks like we had an error. Sorry."
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1735
+msgid "Choose an image to insert"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1737
+msgid "Choose a file to insert"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1750
+msgid "Allowed file types are:"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1756
+msgid "Or paste file url here"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1830
+msgid "Save"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:1902
+msgid "saved"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:2026
+msgid "enabled"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:2028
+msgid "disabled"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:2462
+msgid "group name"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:2470
+msgid "add new group"
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:2562
+msgid "Group %(name)s already exists. Group names are case-insensitive."
+msgstr ""
+
+#: skin/etalab/media/js/utils.js:2735
+#, c-format
+msgid "see questions tagged '%s'"
+msgstr ""

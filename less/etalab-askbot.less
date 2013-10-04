@@ -134,7 +134,27 @@ hr.slim {
         color: white;
         padding: 5px;
     }
+
+    .tabsA {
+        .label {
+            color: darken(@gray-lighter, 10%);
+        }
+
+        a {
+            color: white;
+            margin: 0 5px;
+
+            &:hover {
+                color: darken(white, 10%);
+            }
+
+            &:not(:latest-child) {
+            }
+        }
+    }
 }
+
+
 
 .tabBar-answer h2{
     display: inline;
