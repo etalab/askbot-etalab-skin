@@ -233,6 +233,10 @@ hr.slim {
             margin: 5px;
             background-color: lighten(@bg-light, 30%);
             border-radius: 4px;
+
+            & > * {
+                display: inline-block;
+            }
         }
     }
 }
@@ -337,6 +341,11 @@ hr.slim {
     background-color: white;
     border: 1px solid @gray-lighter;
     margin-bottom: 5px;
+
+    p.name {
+        display: inline-block;
+        margin: 5px;
+    }
 }
 
 .user-card {

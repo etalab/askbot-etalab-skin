@@ -26,7 +26,7 @@
             <div class="tags-desc">{% trans %}Tags{% endtrans %}</div>
             {% include "widgets/tag_editor.html" %}
         {% else %}
-            {% if tags_are_required %}
+            {#% if tags_are_required %}
                 <label for="id_tags">
                 {% if mandatory_tags %}
                     <strong>{% trans %}tags{% endtrans %}</strong>
@@ -45,10 +45,24 @@
                 </label>
             {% else %}
                 <strong>{% trans %}tags:{% endtrans %}</strong>
-            {% endif %}
-            <span class="form-error">{{ post_form.tags.errors }}</span><br/>
+            {% endif %#}
+            <!--span class="form-error">{{ post_form.tags.errors }}</span><br/>
             {{ post_form.tags }}
-            <br/><label for="id_tags">{{ post_form.tags.help_text }}</label>
+            <br/><label for="id_tags">{{ post_form.tags.help_text }}</label-->
+
+            <div class="form-group{% if post_form.tags.errors %} has-error{% endif %}">
+                <label for="#id_tags" class="control-label col-sm-3">
+                    {{ post_form.tags.label }}
+                </label>
+                <div class="col-sm-9">
+                    <input id="id_tags" class="form-control" autocomplete="off"
+                        name="{{ post_form.tags.html_name }}"
+                        value="{% if post_form.initial.tags %}{{post_form.initial.tags|escape}}{% endif %}"
+                        placeholder="{{ post_form.tags.label }}"/>
+                    <span class="help-block">{{ post_form.tags.help_text }}</span>
+                    <span class="help-block">{{ post_form.tags.errors }}</span>
+                </div>
+            </div>
         {% endif %}
     </div>
 {% endif %}
@@ -66,21 +80,38 @@
 
 {% if user and user.is_authenticated() and user.is_administrator() %}
     {# admin can post answers or questions on behalf of anyone. #}
-    <!--div class="form-group{% if post_form.post_author_username.errors %} has-error{% endif %}">
-        <input id="id_post_author_username" class="form-control" autocomplete="off"
-            name="{{ post_form.post_author_username.html_name }}"
-            value="{% if post_form.initial.post_author_username %}{{post_form.initial.post_author_username|escape}}{% endif %}"
-            placeholder="{{ post_form.post_author_username.help_text }}"/>
-        <span class="help-block">{{ post_form.post_author_username.errors }}</span>
-    </div>
-    <div class="form-group{% if post_form.post_author_email.errors %} has-error{% endif %}">
-        <input id="id_post_author_email" class="form-control" autocomplete="off"
-            name="{{ post_form.post_author_email.html_name }}"
-            value="{% if post_form.initial.post_author_email %}{{post_form.initial.post_author_email|escape}}{% endif %}"
-            placeholder="{{ post_form.post_author_email.help_text }}"/>
-        <span class="help-block">{{ post_form.post_author_email.errors }}</span>
-    </div-->
-    <table class="proxy-user-info">
+    <fieldset>
+        <legend>
+            {% trans %}To post on behalf of someone else, enter user name <strong>and</strong> email below.{% endtrans %}
+        </legend>
+
+        <div class="form-group{% if post_form.post_author_username.errors %} has-error{% endif %}">
+            <label for="#id_post_author_username" class="control-label col-sm-3">
+                {{ post_form.post_author_username.label }}
+            </label>
+            <div class="col-sm-9">
+                <input id="id_post_author_username" class="form-control" autocomplete="off"
+                    name="{{ post_form.post_author_username.html_name }}"
+                    value="{% if post_form.initial.post_author_username %}{{post_form.initial.post_author_username|escape}}{% endif %}"
+                    placeholder="{{ post_form.post_author_username.label }}"/>
+                <span class="help-block">{{ post_form.post_author_username.errors }}</span>
+            </div>
+        </div>
+
+        <div class="form-group{% if post_form.post_author_email.errors %} has-error{% endif %}">
+            <label for="#id_post_author_email" class="control-label col-sm-3">
+                {{ post_form.post_author_email.label }}
+            </label>
+            <div class="col-sm-9">
+                <input id="id_post_author_email" class="form-control" autocomplete="off"
+                    name="{{ post_form.post_author_email.html_name }}"
+                    value="{% if post_form.initial.post_author_email %}{{post_form.initial.post_author_email|escape}}{% endif %}"
+                    placeholder="{{ post_form.post_author_email.label }}"/>
+                <span class="help-block">{{ post_form.post_author_email.errors }}</span>
+            </div>
+        </div>
+    </fieldset>
+    <!--table class="proxy-user-info">
         <tbody>
             <tr><td colspan="2">
                 <label>
@@ -103,5 +134,5 @@
                     <span class="form-error">{{ post_form.post_author_email.errors }}</span>
                 </td>
         </tbody>
-    </table>
+    </table-->
 {% endif %}
