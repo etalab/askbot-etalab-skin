@@ -312,7 +312,9 @@ hr.slim {
     margin-top: 5px;
 }
 
-
+/**
+ * Tags specifics
+ */
 .tags {
     display: inline-block;
     a {
@@ -321,6 +323,22 @@ hr.slim {
         &:hover {
             font-weight: bold;
         }
+    }
+}
+
+// Tag autocompleter
+.acResults {
+    background-color: @bg-dark;
+    color: white;
+    border-radius: 0 0 4px 4px;
+    padding: 5px;
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .acSelect {
+        background-color: @bg-light;
     }
 }
 
