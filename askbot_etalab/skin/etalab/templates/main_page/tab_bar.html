@@ -67,20 +67,5 @@
             )
         }}
     </div>
-
-    {% if settings.RSS_ENABLED %}
-    <div class="btn-group btn-group-sm">
-        <a id="questions-rss-button" class="rss btn btn-warning"
-            {% if feed_url %}
-            href="{{feed_url}}"
-            {% else %}
-            href="/feeds/rss/"
-            {% endif %}
-            title="{% trans %}subscribe to the questions feed{% endtrans %}">
-            <span class="icon icon-rss"></span>
-            {% trans %}RSS{% endtrans %}
-        </a>
-    </div>
-    {% endif %}
 </div>
 {% endcache %}

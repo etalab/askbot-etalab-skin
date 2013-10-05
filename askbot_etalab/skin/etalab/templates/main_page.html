@@ -8,6 +8,18 @@
     there is no html markup in this file
 #}
 <!-- questions.html 2 -->
+
+{% if settings.RSS_ENABLED and feed_url %}
+{% block extra_rss %}
+<link
+    rel="alternate"
+    type="application/rss+xml"
+    title="{% trans site_title=settings.APP_SHORT_NAME %}Filtered RSS feed from {{ site_title }}{% endtrans %}"
+    href="{{ feed_url }}"
+/>
+{% endblock %}
+{% endif %}
+
 {% block forejs %}
     {% include "main_page/custom_head_javascript.html" ignore missing %}
 {% endblock %}

@@ -37,6 +37,8 @@
         href="{{ base_url }}{% url "latest_questions_feed" %}"
     />
 
+    {% block extra_rss %}{% endblock %}
+
     {% if settings.USE_CUSTOM_HTML_HEAD %}
         {{ settings.CUSTOM_HTML_HEAD }}
     {% endif %}
