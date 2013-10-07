@@ -110,6 +110,13 @@ hr.slim {
             &.answers {
                 color: @answer;
                 #gradient.vertical(white, lighten(@answer, 35%));
+
+                &.accepted .item-count:after {
+                    .glyphicon();
+                    font-size: 15px;
+                    content: "\e084";
+                    color: green;
+                }
             }
 
             &.votes {

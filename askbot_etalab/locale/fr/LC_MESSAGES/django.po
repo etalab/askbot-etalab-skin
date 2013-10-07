@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: askbot-etalab-skin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-03 10:12-0500\n"
-"PO-Revision-Date: 2013-10-03 15:22+0000\n"
+"PO-Revision-Date: 2013-10-07 15:08+0000\n"
 "Last-Translator: noirbizarre <noirbizarre@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/askbot-etalab-skin/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -48,13 +48,13 @@ msgstr ""
 #: skin/etalab/templates/question/javascript.html:105
 #: skin/etalab/templates/widgets/edit_post.html:73
 msgid "hide preview"
-msgstr ""
+msgstr "cacher l'aperçu"
 
 #: skin/etalab/templates/answer_edit.html:89 skin/etalab/templates/ask.html:85
 #: skin/etalab/templates/question_edit.html:103
 #: skin/etalab/templates/question/javascript.html:105
 msgid "show preview"
-msgstr ""
+msgstr "afficher l'aperçu"
 
 #: skin/etalab/templates/ask.html:4 skin/etalab/templates/navbar.html:133
 #: skin/etalab/templates/navbar.html:136
@@ -201,7 +201,7 @@ msgstr ""
 #: skin/etalab/templates/macros.html:364
 #: skin/etalab/templates/question.html:232
 msgid "see more comments"
-msgstr ""
+msgstr "voir plus de commantaires"
 
 #: skin/etalab/templates/macros.html:366
 #: skin/etalab/templates/question.html:234
@@ -519,7 +519,7 @@ msgstr ""
 
 #: skin/etalab/templates/question/answer_controls.html:52
 msgid "more"
-msgstr ""
+msgstr "plus"
 
 #: skin/etalab/templates/question/answer_controls.html:59
 msgid "repost as a question comment"
@@ -744,7 +744,7 @@ msgstr ""
 
 #: skin/etalab/templates/widgets/edit_post.html:81
 msgid "Preview"
-msgstr ""
+msgstr "Aperçu"
 
 #: skin/etalab/templates/widgets/edit_post.html:94
 msgid ""
