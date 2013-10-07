@@ -19,6 +19,15 @@
             return false;
         });
 
+        // Form help messages as popover on info sign
+        $('.form-help').popover({
+            placement: 'top',
+            trigger: 'hover',
+            html: true
+        });
+
+        $('select.form-control').selectpicker();
+
     });
 
 }(window.jQuery));

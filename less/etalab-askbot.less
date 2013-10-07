@@ -1,5 +1,6 @@
 @import "etalab.less";
-
+@import (less) "bootstrap-select.css"
+;
 .condensed {
     font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -421,4 +422,30 @@ ol.breadcrumb {
     .active {
         color: black;
     }
+}
+
+
+/**
+ * Form adjustments
+ */
+.form-help {
+    .glyphicon();
+    .glyphicon-info-sign();
+    cursor: pointer;
+}
+
+.bootstrap-select {
+    &.form-control {
+        padding: 0;
+        border: none;
+    }
+
+    &:not([class*="span"]) {
+        width: 100%;
+    }
+}
+
+input[type="checkbox"].form-control {
+    margin: 0;
+    .box-shadow(none);
 }

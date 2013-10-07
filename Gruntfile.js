@@ -42,6 +42,7 @@ module.exports = function(grunt) {
                     'jquery/jquery.js',
                     'swig/index.js',
                     'typeahead.js/dist/typeahead.js',
+                    'bootstrap-select/bootstrap-select.js'
                 ],
                 dest: 'askbot_etalab/skin/etalab/media/js/libs/',
                 rename: function(dest, src) {
@@ -59,7 +60,8 @@ module.exports = function(grunt) {
             options: {
                 paths: [
                     'bower/etalab-assets/less',
-                    'bower/bootstrap/less'
+                    'bower/bootstrap/less',
+                    'bower/bootstrap-select'
                 ]
             },
             dev: {

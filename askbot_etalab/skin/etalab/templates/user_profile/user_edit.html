@@ -1,0 +1,76 @@
+{% extends "one_column_body.html" %}
+{% import "macros.html" as macros %}
+{% from "forms.html" import input, checkbox, textarea, select %}
+<!-- user_edit.html -->
+{% block title %}{% spaceless %}{% trans %}Edit user profile{% endtrans %}{% endspaceless %}{% endblock %}
+{% block content %}
+<h1 class="section-title">
+    {{ request.user.username|escape }} - {% trans %}edit profile{% endtrans %}
+</h1>
+<div id="main-body" style="width:100%;padding-top:10px">
+    <form name="" action="{% url edit_user request.user.id %}" method="post" class="form-horizontal">{% csrf_token %}
+        <div id="left" style="float:left;width:180px">
+            <div class='avatar'>
+                {{ macros.gravatar(view_user, 128) }}
+                {% if request.user == view_user %}
+                    <p><a class="btn btn-default btn-xs"
+                        {% if support_custom_avatars %}
+                            href="{% url avatar_change %}"
+                        {% else %}
+                            href="{% url faq %}#gravatar"
+                        {% endif %}
+                    >{% trans %}change picture{% endtrans %}</a></p>
+                    {% if support_custom_avatars %}
+                    <p><a class="btn btn-default btn-xs"
+                        href="{% url avatar_delete %}"
+                        >{% trans %}remove{% endtrans %}</a>
+                    </p>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <fieldset>
+            <legend>{% trans %}Registered user{% endtrans %}</legend>
+
+            {{ input(form.username, _('Screen Name'), not settings.EDITABLE_SCREEN_NAME) }}
+
+            {{ input(form.email, disabled=not settings.EDITABLE_EMAIL) }}
+
+            {{ input(form.realname) }}
+
+            {{ input(form.website) }}
+
+            {{ input(form.city) }}
+
+            {{ select(form.country, search=True) }}
+
+            {{ checkbox(form.show_country) }}
+
+            {{ input(form.birthday) }}
+
+            {{ textarea(form.about, rows=5) }}
+
+            {% if marked_tags_setting == 'when-user-wants' %}
+            {{ checkbox(form.show_marked_tags) }}
+            {% endif %}
+        </fieldset>
+
+        <p class="text-center">
+            <input type="submit" value="{% trans %}Update{% endtrans %}" class="submit btn btn-success" >&nbsp;
+            <input id="cancel" type="button" value="{% trans %}Cancel{% endtrans %}" class="submit btn btn-warning" >
+        </p>
+
+    </form>
+</div>
+{% endblock %}
+{% block endjs %}
+        <script type="text/javascript">
+            $().ready(function(){
+                $("#nav_profile").attr('className',"on");
+                $("#cancel").bind('click', function(){history.go(-1);})
+            });
+        </script>
+        {% block userjs %}
+        {% endblock %}
+{% endblock %}
+<!-- end user_edit.html -->
