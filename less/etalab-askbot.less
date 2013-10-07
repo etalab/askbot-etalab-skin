@@ -167,6 +167,36 @@ hr.slim {
 }
 
 
+.user-votes {
+    .condensed();
+    font-weight: bold;
+    font-size: 2 * @font-size-large;
+    margin: 5px;
+}
+
+.up-votes {
+    color: green;
+    margin: 5px;
+}
+
+.down-votes {
+    color: red;
+    margin: 5px;
+}
+
+.karma-diagram {
+    height: 350px;
+}
+
+.karma-gained {
+    color: green;
+}
+
+.karma-lost {
+    color: red;
+}
+
+
 /**
  * Common posts style
  */
@@ -393,6 +423,17 @@ hr.slim {
     .user-info {
         display: inline-block;
     }
+}
+
+.scoreNumber {
+    .condensed();
+    font-weight: bold;
+    font-size: 2 * @font-size-large;
+    color: @gray-light;
+}
+
+h2 .count {
+    .scoreNumber();
 }
 
 /**

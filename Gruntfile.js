@@ -42,7 +42,10 @@ module.exports = function(grunt) {
                     'jquery/jquery.js',
                     'swig/index.js',
                     'typeahead.js/dist/typeahead.js',
-                    'bootstrap-select/bootstrap-select.js'
+                    'bootstrap-select/bootstrap-select.js',
+                    'flot/jquery.flot.js',
+                    'flot/jquery.flot.time.js',
+                    'flot/excanvas.min.js',
                 ],
                 dest: 'askbot_etalab/skin/etalab/media/js/libs/',
                 rename: function(dest, src) {

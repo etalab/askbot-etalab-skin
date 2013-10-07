@@ -7,6 +7,7 @@
 </style>
 {% endblock %}
 {% block content %}
+<div class="container">
     <h1 class="section-title">
         {% spaceless %}
         {% trans username=view_user.username|escape %}{{username}}'s profile{% endtrans %} - {% block profilesection %}{% endblock %}
@@ -17,13 +18,14 @@
         {% block usercontent %}
         {% endblock %}
     </div>
+</div>
 {% endblock %}<!-- end user.html -->
 {% block endjs %}
     <script type="text/javascript">
         var viewUserID = {{view_user.id}};
         askbot['data']['viewUserName'] = '{{ view_user.username|escape }}';
         askbot['data']['viewUserId'] = {{ view_user.id }};
-        askbot['data']['userPostsPageSize'] = {{ page_size }};
+        askbot['data']['userPostsPageSize'] = {{ page_size|default(20) }};
         askbot['urls']['edit_group_membership'] = '{% url edit_group_membership %}';
         askbot['urls']['getGroupsList'] = '{% url get_groups_list %}';
         askbot['urls']['getTopAnswers'] = '{% url get_top_answers %}';
