@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # noirbizarre <noirbizarre@gmail.com>, 2013
 # noirbizarre <noirbizarre@gmail.com>, 2013
@@ -9,50 +9,59 @@ msgid ""
 msgstr ""
 "Project-Id-Version: askbot-etalab-skin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-03 10:12-0500\n"
-"PO-Revision-Date: 2013-10-07 15:08+0000\n"
+"POT-Creation-Date: 2013-10-07 11:25-0500\n"
+"PO-Revision-Date: 2013-10-07 15:18+0000\n"
 "Last-Translator: noirbizarre <noirbizarre@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/askbot-etalab-skin/language/fr/)\n"
+"Language-Team: French (http://www.transifex.com/projects/p/askbot-etalab-"
+"skin/language/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: skin/etalab/templates/answer_edit.html:4
 #: skin/etalab/templates/answer_edit.html:10
+#: skin/etalab/templates/question/answer_edit.html:4
+#: skin/etalab/templates/question/answer_edit.html:10
 msgid "Edit answer"
 msgstr ""
 
 #: skin/etalab/templates/answer_edit.html:10
 #: skin/etalab/templates/question_edit.html:9
+#: skin/etalab/templates/question/answer_edit.html:10
 msgid "back"
 msgstr ""
 
 #: skin/etalab/templates/answer_edit.html:41
 #: skin/etalab/templates/question_edit.html:61
+#: skin/etalab/templates/question/answer_edit.html:41
 msgid "Save edit"
 msgstr ""
 
 #: skin/etalab/templates/answer_edit.html:46
 #: skin/etalab/templates/question_edit.html:62
+#: skin/etalab/templates/question/answer_edit.html:46
+#: skin/etalab/templates/user_profile/user_edit.html:59
 msgid "Cancel"
 msgstr ""
 
-#: skin/etalab/templates/answer_edit.html:86
-#: skin/etalab/templates/answer_edit.html:89 skin/etalab/templates/ask.html:82
-#: skin/etalab/templates/ask.html.py:85
-#: skin/etalab/templates/question_edit.html:100
-#: skin/etalab/templates/question_edit.html:103
-#: skin/etalab/templates/question/javascript.html:102
-#: skin/etalab/templates/question/javascript.html:105
-#: skin/etalab/templates/widgets/edit_post.html:73
+#: skin/etalab/templates/answer_edit.html:85
+#: skin/etalab/templates/answer_edit.html:88 skin/etalab/templates/ask.html:81
+#: skin/etalab/templates/ask.html.py:84
+#: skin/etalab/templates/question_edit.html:99
+#: skin/etalab/templates/question_edit.html:102
+#: skin/etalab/templates/question/answer_edit.html:86
+#: skin/etalab/templates/question/answer_edit.html:89
+#: skin/etalab/templates/question/javascript.html:101
+#: skin/etalab/templates/question/javascript.html:104
 msgid "hide preview"
 msgstr "cacher l'aperçu"
 
-#: skin/etalab/templates/answer_edit.html:89 skin/etalab/templates/ask.html:85
-#: skin/etalab/templates/question_edit.html:103
-#: skin/etalab/templates/question/javascript.html:105
+#: skin/etalab/templates/answer_edit.html:88 skin/etalab/templates/ask.html:84
+#: skin/etalab/templates/question_edit.html:102
+#: skin/etalab/templates/question/answer_edit.html:89
+#: skin/etalab/templates/question/javascript.html:104
 msgid "show preview"
 msgstr "afficher l'aperçu"
 
@@ -79,7 +88,9 @@ msgstr ""
 
 #: skin/etalab/templates/ask.html:29
 msgid "please, try to make your question interesting to this community"
-msgstr "s'il vous plaît, essayez de rendre votre question intéressante pour cette communauté"
+msgstr ""
+"s'il vous plaît, essayez de rendre votre question intéressante pour cette "
+"communauté"
 
 #: skin/etalab/templates/ask.html:30
 msgid "provide enough details"
@@ -97,7 +108,7 @@ msgstr ""
 msgid "FAQ"
 msgstr ""
 
-#: skin/etalab/templates/ask.html:58 skin/etalab/templates/question.html:340
+#: skin/etalab/templates/ask.html:57 skin/etalab/templates/question.html:340
 msgid "User name:"
 msgstr ""
 
@@ -106,24 +117,24 @@ msgstr ""
 msgid "RSS feed from %(site_title)s"
 msgstr ""
 
-#: skin/etalab/templates/base.html:78
-msgid "Back to top"
-msgstr "Haut de page"
-
-#: skin/etalab/templates/base.html:81
+#: skin/etalab/templates/base.html:82
 msgid "Privacy"
 msgstr "Vie privée"
 
-#: skin/etalab/templates/base.html:82
+#: skin/etalab/templates/base.html:83
 msgid "Terms"
 msgstr "Conditions légales"
 
-#: skin/etalab/templates/footer_js.html:23
+#: skin/etalab/templates/base.html:86
+msgid "Back to top"
+msgstr "Haut de page"
+
+#: skin/etalab/templates/footer_js.html:8
 #, python-format
 msgid ""
 "Please note: %(app_name)s requires javascript to work properly, please "
-"enable javascript in your browser, <a href=\"%(noscript_url)s\">here is "
-"how</a>"
+"enable javascript in your browser, <a href=\"%(noscript_url)s\">here is how</"
+"a>"
 msgstr ""
 
 #: skin/etalab/templates/macros.html:5
@@ -227,82 +238,95 @@ msgstr ""
 msgid "convert to answer"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:576
+#: skin/etalab/templates/macros.html:581
 #, python-format
 msgid "follow %(alias)s"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:579
+#: skin/etalab/templates/macros.html:584
 #, python-format
 msgid "unfollow %(alias)s"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:580
+#: skin/etalab/templates/macros.html:585
 #, python-format
 msgid "following %(alias)s"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:661
+#: skin/etalab/templates/macros.html:666
 #, python-format
 msgid "%(username)s gravatar image"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:670
+#: skin/etalab/templates/macros.html:675
 #, python-format
 msgid "%(username)s's website is %(url)s"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:685 skin/etalab/templates/macros.html:686
-#: skin/etalab/templates/macros.html:724 skin/etalab/templates/macros.html:725
-msgid "previous"
-msgstr ""
+#: skin/etalab/templates/macros.html:692 skin/etalab/templates/macros.html:741
+#, fuzzy
+msgid "Previous page"
+msgstr "Aperçu"
 
-#: skin/etalab/templates/macros.html:697 skin/etalab/templates/macros.html:736
-msgid "current page"
-msgstr ""
-
-#: skin/etalab/templates/macros.html:699 skin/etalab/templates/macros.html:706
-#: skin/etalab/templates/macros.html:738 skin/etalab/templates/macros.html:745
+#: skin/etalab/templates/macros.html:707 skin/etalab/templates/macros.html:756
+#: skin/etalab/templates/macros.html:797 skin/etalab/templates/macros.html:804
 #, python-format
 msgid "page %(num)s"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:710 skin/etalab/templates/macros.html:749
+#: skin/etalab/templates/macros.html:722 skin/etalab/templates/macros.html:771
+msgid "Next page"
+msgstr ""
+
+#: skin/etalab/templates/macros.html:783 skin/etalab/templates/macros.html:784
+msgid "previous"
+msgstr ""
+
+#: skin/etalab/templates/macros.html:795
+msgid "current page"
+msgstr ""
+
+#: skin/etalab/templates/macros.html:808
 msgid "next page"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:761
+#: skin/etalab/templates/macros.html:820
 #, python-format
 msgid "responses for %(username)s"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:764
+#: skin/etalab/templates/macros.html:823
 #, python-format
 msgid "you have %(response_count)s new response"
 msgid_plural "you have %(response_count)s new responses"
 msgstr[0] ""
 msgstr[1] ""
 
-#: skin/etalab/templates/macros.html:767
+#: skin/etalab/templates/macros.html:826
 msgid "no new responses yet"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:782 skin/etalab/templates/macros.html:783
+#: skin/etalab/templates/macros.html:841 skin/etalab/templates/macros.html:842
 #, python-format
 msgid "%(new)s new flagged posts and %(seen)s previous"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:785 skin/etalab/templates/macros.html:786
+#: skin/etalab/templates/macros.html:844 skin/etalab/templates/macros.html:845
 #, python-format
 msgid "%(new)s new flagged posts"
 msgstr ""
 
-#: skin/etalab/templates/macros.html:791 skin/etalab/templates/macros.html:792
+#: skin/etalab/templates/macros.html:850 skin/etalab/templates/macros.html:851
 #, python-format
 msgid "%(seen)s flagged posts"
 msgstr ""
 
-#: skin/etalab/templates/main_page.html:14
+#: skin/etalab/templates/main_page.html:17
+#, python-format
+msgid "Filtered RSS feed from %(site_title)s"
+msgstr ""
+
+#: skin/etalab/templates/main_page.html:26
 #: skin/etalab/templates/sidebar.html:12
 msgid "Questions"
 msgstr "Questions"
@@ -407,11 +431,76 @@ msgstr ""
 msgid "People & groups"
 msgstr "Personnes et groupes"
 
-#: skin/etalab/templates/sidebar.html:30
+#: skin/etalab/templates/sidebar.html:30 skin/etalab/templates/users.html:8
+#: skin/etalab/templates/users.html:18
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: skin/etalab/templates/authopenid/providers_javascript.html:8
+#: skin/etalab/templates/users.html:16
+#, python-format
+msgid "Users in group %(name)s"
+msgstr ""
+
+#: skin/etalab/templates/users.html:24
+msgid "Select/Sort by &raquo;"
+msgstr ""
+
+#: skin/etalab/templates/users.html:29
+#, fuzzy, python-format
+msgid "people in group %(name)s"
+msgstr "Personnes et groupes"
+
+#: skin/etalab/templates/users.html:33
+#: skin/etalab/templates/main_page/tab_bar.html:6
+msgid "Sort by &raquo;"
+msgstr ""
+
+#: skin/etalab/templates/users.html:40
+msgid "see people with the highest reputation"
+msgstr ""
+
+#: skin/etalab/templates/users.html:41
+#: skin/etalab/templates/user_profile/user_info.html:25
+#: skin/etalab/templates/user_profile/user_reputation.html:5
+#: skin/etalab/templates/user_profile/user_tabs.html:34
+msgid "karma"
+msgstr ""
+
+#: skin/etalab/templates/users.html:47
+msgid "see people who joined most recently"
+msgstr ""
+
+#: skin/etalab/templates/users.html:48
+msgid "recent"
+msgstr ""
+
+#: skin/etalab/templates/users.html:53
+msgid "see people who joined the site first"
+msgstr ""
+
+#: skin/etalab/templates/users.html:54
+#: skin/etalab/templates/question/answer_tab_bar.html:15
+msgid "oldest"
+msgstr ""
+
+#: skin/etalab/templates/users.html:59
+msgid "see people sorted by name"
+msgstr ""
+
+#: skin/etalab/templates/users.html:60
+msgid "by username"
+msgstr ""
+
+#: skin/etalab/templates/users.html:66
+#, python-format
+msgid "users matching query %(search_query)s:"
+msgstr ""
+
+#: skin/etalab/templates/users.html:69
+msgid "Nothing found."
+msgstr ""
+
+#: skin/etalab/templates/authopenid/providers_javascript.html:7
 msgid "account/"
 msgstr ""
 
@@ -448,18 +537,6 @@ msgstr ""
 
 #: skin/etalab/templates/main_page/headline.html:11
 msgid "Tagged"
-msgstr ""
-
-#: skin/etalab/templates/main_page/tab_bar.html:6
-msgid "Sort by &raquo;"
-msgstr ""
-
-#: skin/etalab/templates/main_page/tab_bar.html:79
-msgid "subscribe to the questions feed"
-msgstr ""
-
-#: skin/etalab/templates/main_page/tab_bar.html:81
-msgid "RSS"
 msgstr ""
 
 #: skin/etalab/templates/question/answer_card.html:24
@@ -550,10 +627,6 @@ msgstr ""
 msgid "oldest answers will be shown first"
 msgstr ""
 
-#: skin/etalab/templates/question/answer_tab_bar.html:15
-msgid "oldest"
-msgstr ""
-
 #: skin/etalab/templates/question/answer_tab_bar.html:18
 msgid "newest answers will be shown first"
 msgstr ""
@@ -571,6 +644,7 @@ msgid "most voted"
 msgstr ""
 
 #: skin/etalab/templates/question/answer_vote_buttons.html:8
+#: skin/etalab/templates/user_profile/user_answers_list.html:6
 msgid "this answer has been selected as correct"
 msgstr ""
 
@@ -600,17 +674,17 @@ msgstr ""
 
 #: skin/etalab/templates/question/new_answer_form.html:28
 msgid ""
-"<span class='strong big'>Please start posting your answer anonymously</span>"
-" - your answer will be saved within the current session and published after "
-"you log in or create a new account. Please try to give a <strong>substantial"
-" answer</strong>, for discussions, <strong>please use comments</strong> and "
+"<span class='strong big'>Please start posting your answer anonymously</span> "
+"- your answer will be saved within the current session and published after "
+"you log in or create a new account. Please try to give a <strong>substantial "
+"answer</strong>, for discussions, <strong>please use comments</strong> and "
 "<strong>please do remember to vote</strong> (after you log in)!"
 msgstr ""
 
 #: skin/etalab/templates/question/new_answer_form.html:32
 msgid ""
-"<span class='big strong'>You are welcome to answer your own question</span>,"
-" but please make sure to give an <strong>answer</strong>. Remember that you "
+"<span class='big strong'>You are welcome to answer your own question</span>, "
+"but please make sure to give an <strong>answer</strong>. Remember that you "
 "can always <strong>revise your original question</strong>. Please "
 "<strong>use comments for discussions</strong>  and <strong>please don't "
 "forget to vote :)</strong> for the answers that you liked (or perhaps did "
@@ -621,10 +695,10 @@ msgstr ""
 msgid ""
 "<span class='big strong'>Please try to give a substantial answer</span>. If "
 "you wanted to comment on the question or answer, just <strong>use the "
-"commenting tool</strong>. Please remember that you can always <strong>revise"
-" your answers</strong> - no need to answer the same question twice. Also, "
-"please <strong>don't forget to vote</strong> - it really helps to select the"
-" best questions and answers!"
+"commenting tool</strong>. Please remember that you can always <strong>revise "
+"your answers</strong> - no need to answer the same question twice. Also, "
+"please <strong>don't forget to vote</strong> - it really helps to select the "
+"best questions and answers!"
 msgstr ""
 
 #: skin/etalab/templates/question/new_answer_form.html:39
@@ -643,17 +717,182 @@ msgstr ""
 msgid "close"
 msgstr ""
 
-#: skin/etalab/templates/user_profile/user.html:12
+#: skin/etalab/templates/tags/content.html:5
+#: skin/etalab/templates/tags/content.html:29
+msgid "Nothing found"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user.html:13
 #, python-format
 msgid "%(username)s's profile"
 msgstr ""
 
-#: skin/etalab/templates/user_profile/user_tabs.html:6
-msgid "User profile"
+#: skin/etalab/templates/user_profile/user_answers_list.html:6
+#, python-format
+msgid "the answer has been voted for %(answer_score)s times"
 msgstr ""
 
+#: skin/etalab/templates/user_profile/user_answers_list.html:15
+#, python-format
+msgid "(%(comment_count)s comment)"
+msgid_plural "the answer has been commented %(comment_count)s times"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/templates/user_profile/user_edit.html:5
+msgid "Edit user profile"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_edit.html:8
+msgid "edit profile"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_edit.html:21
+#: skin/etalab/templates/user_profile/user_info.html:14
+msgid "change picture"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_edit.html:25
+#: skin/etalab/templates/user_profile/user_info.html:18
+msgid "remove"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_edit.html:32
+#, fuzzy
+msgid "Registered user"
+msgstr "Créer un compte"
+
+#: skin/etalab/templates/user_profile/user_edit.html:58
+msgid "Update"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:37
+msgid "update profile"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:41
+msgid "manage login methods"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:54
+msgid "real name"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:60
+msgid "groups"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:71
+msgid "add group"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:77
+msgid "member since"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:82
+msgid "last seen"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:88
+msgid "website"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:101
+msgid "location"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:108
+msgid "age"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:109
+#, python-format
+msgid "%(age)s years old"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:114
+msgid "todays unused votes"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_info.html:115
+msgid "votes left"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_reputation.html:13
+msgid "Your karma change log."
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_reputation.html:15
+#, python-format
+msgid "%(user_name)s's karma change log"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:6
 #: skin/etalab/templates/user_profile/user_tabs.html:8
 msgid "overview"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:12
+#, python-format
+msgid "<span class=\"count\">%(counter)s</span> Question"
+msgid_plural "<span class=\"count\">%(counter)s</span> Questions"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:17
+msgid "Answer"
+msgid_plural "Answers"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:22
+#, python-format
+msgid "<span class=\"count\">%(cnt)s</span> Vote"
+msgid_plural "<span class=\"count\">%(cnt)s</span> Votes "
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:25
+#: skin/etalab/templates/user_profile/user_votes.html:15
+msgid "upvote"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:26
+#: skin/etalab/templates/user_profile/user_votes.html:17
+msgid "downvote"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:30
+#, python-format
+msgid "<span class=\"count\">%(counter)s</span> Tag"
+msgid_plural "<span class=\"count\">%(counter)s</span> Tags"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:64
+#, python-format
+msgid "<span class=\"count\">%(counter)s</span> Badge"
+msgid_plural "<span class=\"count\">%(counter)s</span> Badges"
+msgstr[0] ""
+msgstr[1] ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:70
+#, python-format
+msgid "%(description)s"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:72
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_stats.html:84
+msgid "Answer to:"
+msgstr ""
+
+#: skin/etalab/templates/user_profile/user_tabs.html:6
+msgid "User profile"
 msgstr ""
 
 #: skin/etalab/templates/user_profile/user_tabs.html:14
@@ -676,10 +915,6 @@ msgstr ""
 msgid "Graph of user karma"
 msgstr ""
 
-#: skin/etalab/templates/user_profile/user_tabs.html:34
-msgid "karma"
-msgstr ""
-
 #: skin/etalab/templates/user_profile/user_tabs.html:40
 msgid "questions that user is following"
 msgstr ""
@@ -698,6 +933,7 @@ msgid "user vote record"
 msgstr ""
 
 #: skin/etalab/templates/user_profile/user_tabs.html:57
+#: skin/etalab/templates/user_profile/user_votes.html:5
 msgid "votes"
 msgstr ""
 
@@ -738,19 +974,17 @@ msgstr ""
 msgid "(required)"
 msgstr ""
 
-#: skin/etalab/templates/widgets/edit_post.html:71
-msgid "Toggle the real time Markdown editor preview"
-msgstr ""
-
-#: skin/etalab/templates/widgets/edit_post.html:81
+#: skin/etalab/templates/widgets/edit_post.html:75
 msgid "Preview"
 msgstr "Aperçu"
 
-#: skin/etalab/templates/widgets/edit_post.html:94
+#: skin/etalab/templates/widgets/edit_post.html:86
 msgid ""
 "To post on behalf of someone else, enter user name <strong>and</strong> "
 "email below."
 msgstr ""
+"Pour poster sous le nom de quelqu'un d'autre, saisissez son nom "
+"d'utilisateur <strong>and</strong> son email ci-dessous."
 
 #: skin/etalab/templates/widgets/question_summary.html:12
 msgid "view"
