@@ -104,14 +104,14 @@
             <li class="dropdown">
                 <button class="btn btn-dark navbar-btn dropdown-toggle" data-toggle="dropdown">
                     {# {% set flag = "/img/flags/" + current_language_code|upper +".png" %} #}
-                    <img src="{{('/img/flags/' + current_language_code|upper + '.png')|media}}" />
+                    {{ macros.country_flag(current_language_code, current_language_code) }}
                 </button>
                 <ul class="dropdown-menu">
                     {% for lang in settings.LANGUAGES_DICT %}
                         {% if lang != current_language_code %}
                         <li>
                             <a href="/{{ lang }}/{{ settings.ASKBOT_URL }}">
-                                <img src="{{('/img/flags/' + lang|upper + '.png')|media}}" />
+                                {{ macros.country_flag(lang, settings.LANGUAGES_DICT[lang]) }}
                                 {{ settings.LANGUAGES_DICT[lang] }}
                             </a>
                         </li>
